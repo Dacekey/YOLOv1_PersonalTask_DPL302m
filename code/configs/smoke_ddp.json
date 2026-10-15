@@ -31,5 +31,6 @@
   "export_reserve_seconds": 60,
   "train_limit": 2,
   "val_limit": 2,
-  "expected_world_size": 2
+  "expected_world_size": 2,
+  "amp_init_scale": 128.0
 }

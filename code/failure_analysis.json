@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-15",
+  "log": "logs/yolov1-pascal-voc-2007.log",
+  "observed_kaggle_runtime": {
+    "torch": "2.11.0+cu128",
+    "python": "3.13",
+    "devices": [
+      "Tesla T4",
+      "Tesla T4"
+    ],
+    "world_size": 2,
+    "amp": true,
+    "run_mode": "smoke",
+    "commit": "b141445c7fd8102954d9ca85742b5137c25359fc"
+  },
+  "direct_failure": "Non-finite gradient norm at clip_grad_norm_(error_if_nonfinite=True), first optimizer boundary; neither epoch nor optimizer update completed.",
+  "not_root_cause": [
+    "Dataset/pretrained/repository path resolution succeeded",
+    "DDP initialization succeeded",
+    "Kernel-cache/barrier warnings did not terminate execution",
+    "ChildFailedError and CalledProcessError wrap the earlier gradient exception"
+  ],
+  "diagnosis": "The former AMP loop aborted before handling loss-scale overflow. FP16 backward overflow with default scale 65536 was reproduced locally with the full model and a real image; using scale 128 produced a finite gradient norm and successful update. This is supporting reproduction, not a rerun on Kaggle/T4.",
+  "full_model_local_fp16_reproduction": {
+    "device": "cpu",
+    "parameters": 271703550,
+    "image": "000012",
+    "dataset": "stpeteishii/pascal-voc-2007-dataset",
+    "augmentation": false,
+    "results": [
+      {
+        "initial_scale": 65536,
+        "loss": 10.59546184539795,
+        "applied": false,
+        "grad_norm": null,
+        "scale_before": 65536.0,
+        "scale_after": 32768.0
+      },
+      {
+        "initial_scale": 128,
+        "loss": 10.59546184539795,
+        "applied": true,
+        "grad_norm": 18.91109017539259,
+        "scale_before": 128.0,
+        "scale_after": 128.0
+      }
+    ]
+  },
+  "changes": [
+    "configs use amp_init_scale=128",
+    "precision.py skips non-finite AMP updates on every rank and backs off the loss scale before gradient mutation",
+    "finite gradients are clipped and updated; non-finite FP32 gradients still raise",
+    "history/checkpoints/manifest count successful updates and AMP skips",
+    "an epoch with zero successful updates fails explicitly"
+  ],
+  "tests": {
+    "passed": 18,
+    "seconds": 46.61,
+    "command": "python -m pytest tests -q",
+    "includes": [
+      "finite YOLO loss with FP16 backward overflow and recovery",
+      "finite FP16 backward at scale 128",
+      "asymmetric two-rank AMP overflow coordinated skip/recovery",
+      "FP32 invalid gradients rejected on all ranks",
+      "existing train/resume/dataset/evaluation/pretrained/ZIP tests"
+    ]
+  },
+  "rerun": {
+    "push": [
+      "train.py",
+      "precision.py",
+      "configs/*.json",
+      "tests/",
+      "README.md"
+    ],
+    "repo_ref": "New commit, or main after push",
+    "run_mode": "smoke",
+    "run_name": "yolov1_voc2007_smoke_02",
+    "resume_path": "",
+    "reason": "The failed run did not finish an epoch; no usable last.pt was produced."
+  },
+  "limitation": "No local CUDA GPU available; rerun smoke on Kaggle T4 x2 to verify the hardware execution."
+}

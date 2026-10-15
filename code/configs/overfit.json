@@ -30,5 +30,6 @@
   "log_every": 50,
   "export_reserve_seconds": 600,
   "train_limit": 16,
-  "overfit": true
+  "overfit": true,
+  "amp_init_scale": 128.0
 }

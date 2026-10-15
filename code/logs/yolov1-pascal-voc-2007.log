@@ -1,0 +1,453 @@
+11.6s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+11.6s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+11.6s 3 0.00s - to python to disable frozen modules.
+11.6s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+12.4s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+12.4s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+12.4s 7 0.00s - to python to disable frozen modules.
+12.4s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+28.6s 9 Cloning into '/kaggle/temp/personal_yolov1_repo'...
+28.7s 10 PyTorch: 2.11.0+cu128 GPUs: ['Tesla T4', 'Tesla T4']
+28.8s 11 Cloning into '/kaggle/temp/personal_yolov1_repo'...
+28.8s 12 
+28.8s 13 Cloning into '/kaggle/temp/personal_yolov1_repo'...
+30.1s 14 From https://github.com/Dacekey/YOLOv1_PersonalTask_DPL302m
+30.1s 15 * branch            main       -> FETCH_HEAD
+30.3s 16 From https://github.com/Dacekey/YOLOv1_PersonalTask_DPL302m
+30.3s 17 * branch            main       -> FETCH_HEAD
+30.3s 18 
+30.3s 19 From https://github.com/Dacekey/YOLOv1_PersonalTask_DPL302m
+30.3s 20 * branch            main       -> FETCH_HEAD
+32.1s 21 HEAD is now at b141445 Updated: 1
+32.1s 22 Code commit: b141445c7fd8102954d9ca85742b5137c25359fc
+32.1s 23 For repeatable runs set REPO_REF to: b141445c7fd8102954d9ca85742b5137c25359fc
+32.1s 24 HEAD is now at b141445 Updated: 1
+32.1s 25 
+32.1s 26 HEAD is now at b141445 Updated: 1
+168.9s 27 {'root': '/kaggle/input/datasets/stpeteishii/pascal-voc-2007-dataset/VOCdevkit2007/VOC2007', 'splits': {'train': {'available': True, 'images': 2501, 'objects': 7844, 'difficult': 1543, 'collisions': 421}, 'val': {'available': True, 'images': 2510, 'objects': 7818, 'difficult': 1511, 'collisions': 501}, 'trainval': {'available': True, 'images': 5011, 'objects': 15662, 'difficult': 3054, 'collisions': 922}, 'test': {'available': False}}}
+168.9s 28 Weights: /kaggle/temp/personal_yolov1_repo/code/pretrain/extraction.conv.weights Output: /kaggle/working/yolov1_voc2007_smoke_01.zip
+170.8s 29 
+170.8s 30 *****************************************
+170.8s 31 Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+170.8s 32 *****************************************
+171.0s 33 
+171.0s 34 *****************************************
+171.0s 35 Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+171.0s 36 *****************************************
+171.0s 37 
+171.0s 38 
+171.0s 39 *****************************************
+171.0s 40 Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+171.0s 41 *****************************************
+184.6s 42 2026-10-15 10:42:28,645 Train images=2; validation images=2; params=271703550; AMP=True
+184.6s 43 /usr/local/lib/python3.13/dist-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+184.6s 44 return func(*args, **kwargs)
+184.7s 45 2026-10-15 10:42:28,739 DDP world_size=2; per-GPU batch=1; accumulation=1; effective batch=2
+184.8s 46 2026-10-15 10:42:28,645 Train images=2; validation images=2; params=271703550; AMP=True
+184.8s 47 /usr/local/lib/python3.13/dist-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+184.8s 48 return func(*args, **kwargs)
+184.8s 49 2026-10-15 10:42:28,739 DDP world_size=2; per-GPU batch=1; accumulation=1; effective batch=2
+184.8s 50 
+184.8s 51 2026-10-15 10:42:28,645 Train images=2; validation images=2; params=271703550; AMP=True
+184.8s 52 /usr/local/lib/python3.13/dist-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+184.8s 53 return func(*args, **kwargs)
+184.8s 54 2026-10-15 10:42:28,739 DDP world_size=2; per-GPU batch=1; accumulation=1; effective batch=2
+189.3s 55 /kaggle/temp/personal_yolov1_repo/code/boxes.py:13: UserWarning: Specified kernel cache directory could not be created! This disables kernel caching. Specified directory is /root/.cache/torch/kernels. This warning will appear only once per process. (Triggered internally at /pytorch/aten/src/ATen/native/cuda/jit_utils.cpp:1505.)
+189.3s 56 torch.maximum(a[..., :2], b[..., :2])).clamp_min(0).prod(-1)
+189.5s 57 /kaggle/temp/personal_yolov1_repo/code/boxes.py:13: UserWarning: Specified kernel cache directory could not be created! This disables kernel caching. Specified directory is /root/.cache/torch/kernels. This warning will appear only once per process. (Triggered internally at /pytorch/aten/src/ATen/native/cuda/jit_utils.cpp:1505.)
+189.5s 58 torch.maximum(a[..., :2], b[..., :2])).clamp_min(0).prod(-1)
+189.5s 59 
+189.5s 60 /kaggle/temp/personal_yolov1_repo/code/boxes.py:13: UserWarning: Specified kernel cache directory could not be created! This disables kernel caching. Specified directory is /root/.cache/torch/kernels. This warning will appear only once per process. (Triggered internally at /pytorch/aten/src/ATen/native/cuda/jit_utils.cpp:1505.)
+189.5s 61 torch.maximum(a[..., :2], b[..., :2])).clamp_min(0).prod(-1)
+191.2s 62 2026-10-15 10:42:35,212 Training failed; last.pt contains the last completed epoch, if any
+191.2s 63 Traceback (most recent call last):
+191.2s 64 File "/kaggle/temp/personal_yolov1_repo/code/train.py", line 231, in train_run
+191.2s 65 torch.nn.utils.clip_grad_norm_(model.parameters(), config.get("grad_clip", 10),
+191.2s 66 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+191.2s 67 error_if_nonfinite=True)
+191.2s 68 ^^^^^^^^^^^^^^^^^^^^^^^^
+191.2s 69 File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 42, in _no_grad_wrapper
+191.2s 70 return func(*args, **kwargs)
+191.2s 71 File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 231, in clip_grad_norm_
+191.2s 72 total_norm = _get_total_norm(grads, norm_type, error_if_nonfinite, foreach)
+191.2s 73 File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 42, in _no_grad_wrapper
+191.2s 74 return func(*args, **kwargs)
+191.2s 75 File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 111, in _get_total_norm
+191.2s 76 raise RuntimeError(
+191.2s 77 ...<4 lines>...
+191.2s 78 )
+191.2s 79 RuntimeError: The total norm of order 2.0 for gradients from `parameters` is non-finite, so it cannot be clipped. To disable this error and scale the gradients by the non-finite norm anyway, set `error_if_nonfinite=False`
+191.4s 80 2026-10-15 10:42:35,212 Training failed; last.pt contains the last completed epoch, if any
+191.4s 81 Traceback (most recent call last):
+191.4s 82 File "/kaggle/temp/personal_yolov1_repo/code/train.py", line 231, in train_run
+191.4s 83 torch.nn.utils.clip_grad_norm_(model.parameters(), config.get("grad_clip", 10),
+191.4s 84 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+191.4s 85 error_if_nonfinite=True)
+191.4s 86 ^^^^^^^^^^^^^^^^^^^^^^^^
+191.4s 87 File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 42, in _no_grad_wrapper
+191.4s 88 return func(*args, **kwargs)
+191.4s 89 File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 231, in clip_grad_norm_
+191.4s 90 total_norm = _get_total_norm(grads, norm_type, error_if_nonfinite, foreach)
+191.4s 91 File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 42, in _no_grad_wrapper
+191.4s 92 return func(*args, **kwargs)
+191.4s 93 File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 111, in _get_total_norm
+191.4s 94 raise RuntimeError(
+191.4s 95 ...<4 lines>...
+191.4s 96 )
+191.4s 97 RuntimeError: The total norm of order 2.0 for gradients from `parameters` is non-finite, so it cannot be clipped. To disable this error and scale the gradients by the non-finite norm anyway, set `error_if_nonfinite=False`
+191.4s 98 
+191.4s 99 2026-10-15 10:42:35,212 Training failed; last.pt contains the last completed epoch, if any
+191.4s 100 Traceback (most recent call last):
+191.4s 101 File "/kaggle/temp/personal_yolov1_repo/code/train.py", line 231, in train_run
+191.4s 102 torch.nn.utils.clip_grad_norm_(model.parameters(), config.get("grad_clip", 10),
+191.4s 103 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+191.4s 104 error_if_nonfinite=True)
+191.4s 105 ^^^^^^^^^^^^^^^^^^^^^^^^
+191.4s 106 File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 42, in _no_grad_wrapper
+191.4s 107 return func(*args, **kwargs)
+191.4s 108 File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 231, in clip_grad_norm_
+191.4s 109 total_norm = _get_total_norm(grads, norm_type, error_if_nonfinite, foreach)
+191.4s 110 File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 42, in _no_grad_wrapper
+191.4s 111 return func(*args, **kwargs)
+191.4s 112 File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 111, in _get_total_norm
+191.4s 113 raise RuntimeError(
+191.4s 114 ...<4 lines>...
+191.4s 115 )
+191.4s 116 RuntimeError: The total norm of order 2.0 for gradients from `parameters` is non-finite, so it cannot be clipped. To disable this error and scale the gradients by the non-finite norm anyway, set `error_if_nonfinite=False`
+191.5s 117 [rank0]: Traceback (most recent call last):
+191.5s 118 [rank0]:   File "/kaggle/temp/personal_yolov1_repo/code/train.py", line 349, in <module>
+191.5s 119 [rank0]:     main()
+191.5s 120 [rank0]:     ~~~~^^
+191.5s 121 [rank0]:   File "/kaggle/temp/personal_yolov1_repo/code/train.py", line 339, in main
+191.5s 122 [rank0]:     train_run(config, args.data, args.output, args.pretrained, args.resume, device,
+191.5s 123 [rank0]:     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+191.5s 124 [rank0]:               args.max_hours, args.zip)
+191.5s 125 [rank0]:               ^^^^^^^^^^^^^^^^^^^^^^^^^
+191.5s 126 [rank0]:   File "/kaggle/temp/personal_yolov1_repo/code/train.py", line 231, in train_run
+191.5s 127 [rank0]:     torch.nn.utils.clip_grad_norm_(model.parameters(), config.get("grad_clip", 10),
+191.5s 128 [rank0]:     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+191.5s 129 [rank0]:                                    error_if_nonfinite=True)
+191.5s 130 [rank0]:                                    ^^^^^^^^^^^^^^^^^^^^^^^^
+191.5s 131 [rank0]:   File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 42, in _no_grad_wrapper
+191.5s 132 [rank0]:     return func(*args, **kwargs)
+191.5s 133 [rank0]:   File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 231, in clip_grad_norm_
+191.5s 134 [rank0]:     total_norm = _get_total_norm(grads, norm_type, error_if_nonfinite, foreach)
+191.5s 135 [rank0]:   File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 42, in _no_grad_wrapper
+191.5s 136 [rank0]:     return func(*args, **kwargs)
+191.5s 137 [rank0]:   File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 111, in _get_total_norm
+191.5s 138 [rank0]:     raise RuntimeError(
+191.5s 139 [rank0]:     ...<4 lines>...
+191.5s 140 [rank0]:     )
+191.5s 141 [rank0]: RuntimeError: The total norm of order 2.0 for gradients from `parameters` is non-finite, so it cannot be clipped. To disable this error and scale the gradients by the non-finite norm anyway, set `error_if_nonfinite=False`
+191.5s 142 [rank1]: Traceback (most recent call last):
+191.5s 143 [rank1]:   File "/kaggle/temp/personal_yolov1_repo/code/train.py", line 349, in <module>
+191.5s 144 [rank1]:     main()
+191.5s 145 [rank1]:     ~~~~^^
+191.5s 146 [rank1]:   File "/kaggle/temp/personal_yolov1_repo/code/train.py", line 339, in main
+191.5s 147 [rank1]:     train_run(config, args.data, args.output, args.pretrained, args.resume, device,
+191.5s 148 [rank1]:     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+191.5s 149 [rank1]:               args.max_hours, args.zip)
+191.5s 150 [rank1]:               ^^^^^^^^^^^^^^^^^^^^^^^^^
+191.5s 151 [rank1]:   File "/kaggle/temp/personal_yolov1_repo/code/train.py", line 231, in train_run
+191.5s 152 [rank1]:     torch.nn.utils.clip_grad_norm_(model.parameters(), config.get("grad_clip", 10),
+191.5s 153 [rank1]:     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+191.5s 154 [rank1]:                                    error_if_nonfinite=True)
+191.5s 155 [rank1]:                                    ^^^^^^^^^^^^^^^^^^^^^^^^
+191.5s 156 [rank1]:   File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 42, in _no_grad_wrapper
+191.5s 157 [rank1]:     return func(*args, **kwargs)
+191.5s 158 [rank1]:   File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 231, in clip_grad_norm_
+191.5s 159 [rank1]:     total_norm = _get_total_norm(grads, norm_type, error_if_nonfinite, foreach)
+191.5s 160 [rank1]:   File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 42, in _no_grad_wrapper
+191.5s 161 [rank1]:     return func(*args, **kwargs)
+191.5s 162 [rank1]:   File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 111, in _get_total_norm
+191.5s 163 [rank1]:     raise RuntimeError(
+191.5s 164 [rank1]:     ...<4 lines>...
+191.5s 165 [rank1]:     )
+191.5s 166 [rank1]: RuntimeError: The total norm of order 2.0 for gradients from `parameters` is non-finite, so it cannot be clipped. To disable this error and scale the gradients by the non-finite norm anyway, set `error_if_nonfinite=False`
+191.7s 167 [rank0]: Traceback (most recent call last):
+191.7s 168 [rank0]:   File "/kaggle/temp/personal_yolov1_repo/code/train.py", line 349, in <module>
+191.7s 169 [rank0]:     main()
+191.7s 170 [rank0]:     ~~~~^^
+191.7s 171 [rank0]:   File "/kaggle/temp/personal_yolov1_repo/code/train.py", line 339, in main
+191.7s 172 [rank0]:     train_run(config, args.data, args.output, args.pretrained, args.resume, device,
+191.7s 173 [rank0]:     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+191.7s 174 [rank0]:               args.max_hours, args.zip)
+191.7s 175 [rank0]:               ^^^^^^^^^^^^^^^^^^^^^^^^^
+191.7s 176 [rank0]:   File "/kaggle/temp/personal_yolov1_repo/code/train.py", line 231, in train_run
+191.7s 177 [rank0]:     torch.nn.utils.clip_grad_norm_(model.parameters(), config.get("grad_clip", 10),
+191.7s 178 [rank0]:     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+191.7s 179 [rank0]:                                    error_if_nonfinite=True)
+191.7s 180 [rank0]:                                    ^^^^^^^^^^^^^^^^^^^^^^^^
+191.7s 181 [rank0]:   File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 42, in _no_grad_wrapper
+191.7s 182 [rank0]:     return func(*args, **kwargs)
+191.7s 183 [rank0]:   File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 231, in clip_grad_norm_
+191.7s 184 [rank0]:     total_norm = _get_total_norm(grads, norm_type, error_if_nonfinite, foreach)
+191.7s 185 [rank0]:   File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 42, in _no_grad_wrapper
+191.7s 186 [rank0]:     return func(*args, **kwargs)
+191.7s 187 [rank0]:   File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 111, in _get_total_norm
+191.7s 188 [rank0]:     raise RuntimeError(
+191.7s 189 [rank0]:     ...<4 lines>...
+191.7s 190 [rank0]:     )
+191.7s 191 [rank0]: RuntimeError: The total norm of order 2.0 for gradients from `parameters` is non-finite, so it cannot be clipped. To disable this error and scale the gradients by the non-finite norm anyway, set `error_if_nonfinite=False`
+191.7s 192 [rank1]: Traceback (most recent call last):
+191.7s 193 [rank1]:   File "/kaggle/temp/personal_yolov1_repo/code/train.py", line 349, in <module>
+191.7s 194 [rank1]:     main()
+191.7s 195 [rank1]:     ~~~~^^
+191.7s 196 [rank1]:   File "/kaggle/temp/personal_yolov1_repo/code/train.py", line 339, in main
+191.7s 197 [rank1]:     train_run(config, args.data, args.output, args.pretrained, args.resume, device,
+191.7s 198 [rank1]:     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+191.7s 199 [rank1]:               args.max_hours, args.zip)
+191.7s 200 [rank1]:               ^^^^^^^^^^^^^^^^^^^^^^^^^
+191.7s 201 [rank1]:   File "/kaggle/temp/personal_yolov1_repo/code/train.py", line 231, in train_run
+191.7s 202 [rank1]:     torch.nn.utils.clip_grad_norm_(model.parameters(), config.get("grad_clip", 10),
+191.7s 203 [rank1]:     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+191.7s 204 [rank1]:                                    error_if_nonfinite=True)
+191.7s 205 [rank1]:                                    ^^^^^^^^^^^^^^^^^^^^^^^^
+191.7s 206 [rank1]:   File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 42, in _no_grad_wrapper
+191.7s 207 [rank1]:     return func(*args, **kwargs)
+191.7s 208 [rank1]:   File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 231, in clip_grad_norm_
+191.7s 209 [rank1]:     total_norm = _get_total_norm(grads, norm_type, error_if_nonfinite, foreach)
+191.7s 210 [rank1]:   File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 42, in _no_grad_wrapper
+191.7s 211 [rank1]:     return func(*args, **kwargs)
+191.7s 212 [rank1]:   File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 111, in _get_total_norm
+191.7s 213 [rank1]:     raise RuntimeError(
+191.7s 214 [rank1]:     ...<4 lines>...
+191.7s 215 [rank1]:     )
+191.7s 216 [rank1]: RuntimeError: The total norm of order 2.0 for gradients from `parameters` is non-finite, so it cannot be clipped. To disable this error and scale the gradients by the non-finite norm anyway, set `error_if_nonfinite=False`
+191.7s 217 
+191.7s 218 [rank0]: Traceback (most recent call last):
+191.7s 219 [rank0]:   File "/kaggle/temp/personal_yolov1_repo/code/train.py", line 349, in <module>
+191.7s 220 [rank0]:     main()
+191.7s 221 [rank0]:     ~~~~^^
+191.7s 222 [rank0]:   File "/kaggle/temp/personal_yolov1_repo/code/train.py", line 339, in main
+191.7s 223 [rank0]:     train_run(config, args.data, args.output, args.pretrained, args.resume, device,
+191.7s 224 [rank0]:     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+191.7s 225 [rank0]:               args.max_hours, args.zip)
+191.7s 226 [rank0]:               ^^^^^^^^^^^^^^^^^^^^^^^^^
+191.7s 227 [rank0]:   File "/kaggle/temp/personal_yolov1_repo/code/train.py", line 231, in train_run
+191.7s 228 [rank0]:     torch.nn.utils.clip_grad_norm_(model.parameters(), config.get("grad_clip", 10),
+191.7s 229 [rank0]:     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+191.7s 230 [rank0]:                                    error_if_nonfinite=True)
+191.7s 231 [rank0]:                                    ^^^^^^^^^^^^^^^^^^^^^^^^
+191.7s 232 [rank0]:   File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 42, in _no_grad_wrapper
+191.7s 233 [rank0]:     return func(*args, **kwargs)
+191.7s 234 [rank0]:   File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 231, in clip_grad_norm_
+191.7s 235 [rank0]:     total_norm = _get_total_norm(grads, norm_type, error_if_nonfinite, foreach)
+191.7s 236 [rank0]:   File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 42, in _no_grad_wrapper
+191.7s 237 [rank0]:     return func(*args, **kwargs)
+191.7s 238 [rank0]:   File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 111, in _get_total_norm
+191.7s 239 [rank0]:     raise RuntimeError(
+191.7s 240 [rank0]:     ...<4 lines>...
+191.7s 241 [rank0]:     )
+191.7s 242 [rank0]: RuntimeError: The total norm of order 2.0 for gradients from `parameters` is non-finite, so it cannot be clipped. To disable this error and scale the gradients by the non-finite norm anyway, set `error_if_nonfinite=False`
+191.7s 243 [rank1]: Traceback (most recent call last):
+191.7s 244 [rank1]:   File "/kaggle/temp/personal_yolov1_repo/code/train.py", line 349, in <module>
+191.7s 245 [rank1]:     main()
+191.7s 246 [rank1]:     ~~~~^^
+191.7s 247 [rank1]:   File "/kaggle/temp/personal_yolov1_repo/code/train.py", line 339, in main
+191.7s 248 [rank1]:     train_run(config, args.data, args.output, args.pretrained, args.resume, device,
+191.7s 249 [rank1]:     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+191.7s 250 [rank1]:               args.max_hours, args.zip)
+191.7s 251 [rank1]:               ^^^^^^^^^^^^^^^^^^^^^^^^^
+191.7s 252 [rank1]:   File "/kaggle/temp/personal_yolov1_repo/code/train.py", line 231, in train_run
+191.7s 253 [rank1]:     torch.nn.utils.clip_grad_norm_(model.parameters(), config.get("grad_clip", 10),
+191.7s 254 [rank1]:     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+191.7s 255 [rank1]:                                    error_if_nonfinite=True)
+191.7s 256 [rank1]:                                    ^^^^^^^^^^^^^^^^^^^^^^^^
+191.7s 257 [rank1]:   File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 42, in _no_grad_wrapper
+191.7s 258 [rank1]:     return func(*args, **kwargs)
+191.7s 259 [rank1]:   File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 231, in clip_grad_norm_
+191.7s 260 [rank1]:     total_norm = _get_total_norm(grads, norm_type, error_if_nonfinite, foreach)
+191.7s 261 [rank1]:   File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 42, in _no_grad_wrapper
+191.7s 262 [rank1]:     return func(*args, **kwargs)
+191.7s 263 [rank1]:   File "/usr/local/lib/python3.13/dist-packages/torch/nn/utils/clip_grad.py", line 111, in _get_total_norm
+191.7s 264 [rank1]:     raise RuntimeError(
+191.7s 265 [rank1]:     ...<4 lines>...
+191.7s 266 [rank1]:     )
+191.7s 267 [rank1]: RuntimeError: The total norm of order 2.0 for gradients from `parameters` is non-finite, so it cannot be clipped. To disable this error and scale the gradients by the non-finite norm anyway, set `error_if_nonfinite=False`
+199.3s 268 E1015 10:42:43.316000 72 torch/distributed/elastic/multiprocessing/api.py:986] failed (exitcode: 1) local_rank: 0 (pid: 80) of binary: /usr/bin/python3
+199.3s 269 Traceback (most recent call last):
+199.3s 270 File "<frozen runpy>", line 203, in _run_module_as_main
+199.3s 271 File "<frozen runpy>", line 88, in _run_code
+199.3s 272 File "/usr/local/lib/python3.13/dist-packages/torch/distributed/run.py", line 994, in <module>
+199.3s 273 main()
+199.3s 274 ~~~~^^
+199.3s 275 File "/usr/local/lib/python3.13/dist-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+199.3s 276 return f(*args, **kwargs)
+199.3s 277 File "/usr/local/lib/python3.13/dist-packages/torch/distributed/run.py", line 990, in main
+199.3s 278 run(args)
+199.3s 279 ~~~^^^^^^
+199.3s 280 File "/usr/local/lib/python3.13/dist-packages/torch/distributed/run.py", line 981, in run
+199.3s 281 elastic_launch(
+199.3s 282 ~~~~~~~~~~~~~~~
+199.3s 283 config=config,
+199.3s 284 ~~~~~~~~~~~~~~
+199.3s 285 entrypoint=cmd,
+199.3s 286 ~~~~~~~~~~~~~~~
+199.3s 287 )(*cmd_args)
+199.3s 288 ~^^^^^^^^^^^
+199.3s 289 File "/usr/local/lib/python3.13/dist-packages/torch/distributed/launcher/api.py", line 170, in __call__
+199.3s 290 return launch_agent(self._config, self._entrypoint, list(args))
+199.3s 291 File "/usr/local/lib/python3.13/dist-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+199.3s 292 raise ChildFailedError(
+199.3s 293 ...<2 lines>...
+199.3s 294 )
+199.3s 295 torch.distributed.elastic.multiprocessing.errors.ChildFailedError:
+199.3s 296 ============================================================
+199.3s 297 /kaggle/temp/personal_yolov1_repo/code/train.py FAILED
+199.3s 298 ------------------------------------------------------------
+199.3s 299 Failures:
+199.3s 300 [1]:
+199.3s 301 time      : 2026-10-15_10:42:43
+199.3s 302 host      : 8fbf0e910956
+199.3s 303 rank      : 1 (local_rank: 1)
+199.3s 304 exitcode  : 1 (pid: 81)
+199.3s 305 error_file: <N/A>
+199.3s 306 traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+199.3s 307 ------------------------------------------------------------
+199.3s 308 Root Cause (first observed failure):
+199.3s 309 [0]:
+199.3s 310 time      : 2026-10-15_10:42:43
+199.3s 311 host      : 8fbf0e910956
+199.3s 312 rank      : 0 (local_rank: 0)
+199.3s 313 exitcode  : 1 (pid: 80)
+199.3s 314 error_file: <N/A>
+199.3s 315 traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+199.3s 316 ============================================================
+199.5s 317 E1015 10:42:43.316000 72 torch/distributed/elastic/multiprocessing/api.py:986] failed (exitcode: 1) local_rank: 0 (pid: 80) of binary: /usr/bin/python3
+199.5s 318 Traceback (most recent call last):
+199.5s 319 File "<frozen runpy>", line 203, in _run_module_as_main
+199.5s 320 File "<frozen runpy>", line 88, in _run_code
+199.5s 321 File "/usr/local/lib/python3.13/dist-packages/torch/distributed/run.py", line 994, in <module>
+199.5s 322 main()
+199.5s 323 ~~~~^^
+199.5s 324 File "/usr/local/lib/python3.13/dist-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+199.5s 325 return f(*args, **kwargs)
+199.5s 326 File "/usr/local/lib/python3.13/dist-packages/torch/distributed/run.py", line 990, in main
+199.5s 327 run(args)
+199.5s 328 ~~~^^^^^^
+199.5s 329 File "/usr/local/lib/python3.13/dist-packages/torch/distributed/run.py", line 981, in run
+199.5s 330 elastic_launch(
+199.5s 331 ~~~~~~~~~~~~~~~
+199.5s 332 config=config,
+199.5s 333 ~~~~~~~~~~~~~~
+199.5s 334 entrypoint=cmd,
+199.5s 335 ~~~~~~~~~~~~~~~
+199.5s 336 )(*cmd_args)
+199.5s 337 ~^^^^^^^^^^^
+199.5s 338 File "/usr/local/lib/python3.13/dist-packages/torch/distributed/launcher/api.py", line 170, in __call__
+199.5s 339 return launch_agent(self._config, self._entrypoint, list(args))
+199.5s 340 File "/usr/local/lib/python3.13/dist-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+199.5s 341 raise ChildFailedError(
+199.5s 342 ...<2 lines>...
+199.5s 343 )
+199.5s 344 torch.distributed.elastic.multiprocessing.errors.ChildFailedError:
+199.5s 345 ============================================================
+199.5s 346 /kaggle/temp/personal_yolov1_repo/code/train.py FAILED
+199.5s 347 ------------------------------------------------------------
+199.5s 348 Failures:
+199.5s 349 [1]:
+199.5s 350 time      : 2026-10-15_10:42:43
+199.5s 351 host      : 8fbf0e910956
+199.5s 352 rank      : 1 (local_rank: 1)
+199.5s 353 exitcode  : 1 (pid: 81)
+199.5s 354 error_file: <N/A>
+199.5s 355 traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+199.5s 356 ------------------------------------------------------------
+199.5s 357 Root Cause (first observed failure):
+199.5s 358 [0]:
+199.5s 359 time      : 2026-10-15_10:42:43
+199.5s 360 host      : 8fbf0e910956
+199.5s 361 rank      : 0 (local_rank: 0)
+199.5s 362 exitcode  : 1 (pid: 80)
+199.5s 363 error_file: <N/A>
+199.5s 364 traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+199.5s 365 ============================================================
+199.5s 366 
+199.5s 367 E1015 10:42:43.316000 72 torch/distributed/elastic/multiprocessing/api.py:986] failed (exitcode: 1) local_rank: 0 (pid: 80) of binary: /usr/bin/python3
+199.5s 368 Traceback (most recent call last):
+199.5s 369 File "<frozen runpy>", line 203, in _run_module_as_main
+199.5s 370 File "<frozen runpy>", line 88, in _run_code
+199.5s 371 File "/usr/local/lib/python3.13/dist-packages/torch/distributed/run.py", line 994, in <module>
+199.5s 372 main()
+199.5s 373 ~~~~^^
+199.5s 374 File "/usr/local/lib/python3.13/dist-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+199.5s 375 return f(*args, **kwargs)
+199.5s 376 File "/usr/local/lib/python3.13/dist-packages/torch/distributed/run.py", line 990, in main
+199.5s 377 run(args)
+199.5s 378 ~~~^^^^^^
+199.5s 379 File "/usr/local/lib/python3.13/dist-packages/torch/distributed/run.py", line 981, in run
+199.5s 380 elastic_launch(
+199.5s 381 ~~~~~~~~~~~~~~~
+199.5s 382 config=config,
+199.5s 383 ~~~~~~~~~~~~~~
+199.5s 384 entrypoint=cmd,
+199.5s 385 ~~~~~~~~~~~~~~~
+199.5s 386 )(*cmd_args)
+199.5s 387 ~^^^^^^^^^^^
+199.5s 388 File "/usr/local/lib/python3.13/dist-packages/torch/distributed/launcher/api.py", line 170, in __call__
+199.5s 389 return launch_agent(self._config, self._entrypoint, list(args))
+199.5s 390 File "/usr/local/lib/python3.13/dist-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+199.5s 391 raise ChildFailedError(
+199.5s 392 ...<2 lines>...
+199.5s 393 )
+199.5s 394 torch.distributed.elastic.multiprocessing.errors.ChildFailedError:
+199.5s 395 ============================================================
+199.5s 396 /kaggle/temp/personal_yolov1_repo/code/train.py FAILED
+199.5s 397 ------------------------------------------------------------
+199.5s 398 Failures:
+199.5s 399 [1]:
+199.5s 400 time      : 2026-10-15_10:42:43
+199.5s 401 host      : 8fbf0e910956
+199.5s 402 rank      : 1 (local_rank: 1)
+199.5s 403 exitcode  : 1 (pid: 81)
+199.5s 404 error_file: <N/A>
+199.5s 405 traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+199.5s 406 ------------------------------------------------------------
+199.5s 407 Root Cause (first observed failure):
+199.5s 408 [0]:
+199.5s 409 time      : 2026-10-15_10:42:43
+199.5s 410 host      : 8fbf0e910956
+199.5s 411 rank      : 0 (local_rank: 0)
+199.5s 412 exitcode  : 1 (pid: 80)
+199.5s 413 error_file: <N/A>
+199.5s 414 traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+199.5s 415 ============================================================
+200.4s 416 Traceback (most recent call last):
+200.4s 417 File "<string>", line 1, in <module>
+200.4s 418 import sys;import papermill as pm;pm.execute_notebook("__notebook__.ipynb","__notebook__.ipynb",progress_bar=False,log_output=True,stdout_file=sys.stdout,stderr_file=sys.stderr,allow_errors=False,timeout=43200)
+200.4s 419 ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+200.4s 420 File "/usr/local/lib/python3.13/dist-packages/papermill/execute.py", line 131, in execute_notebook
+200.4s 421 raise_for_execution_errors(nb, output_path)
+200.4s 422 ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+200.4s 423 File "/usr/local/lib/python3.13/dist-packages/papermill/execute.py", line 251, in raise_for_execution_errors
+200.4s 424 raise error
+200.4s 425 papermill.exceptions.PapermillExecutionError:
+200.4s 426 ---------------------------------------------------------------------------
+200.4s 427 Exception encountered at "In [4]":
+200.4s 428 ---------------------------------------------------------------------------
+200.4s 429 CalledProcessError                        Traceback (most recent call last)
+200.4s 430 /tmp/ipykernel_23/32020765.py in <cell line: 0>()
+200.4s 431 22 # A Python exception can still package diagnostic files; a forced session kill cannot.
+200.4s 432 23 try:
+200.4s 433 ---> 24     subprocess.run(command, check=True)
+200.4s 434 25 finally:
+200.4s 435 26     if not ZIP.exists():
+200.4s 436 
+200.4s 437 /usr/lib/python3.13/subprocess.py in run(input, capture_output, timeout, check, *popenargs, **kwargs)
+200.4s 438 575         retcode = process.poll()
+200.4s 439 576         if check and retcode:
+200.4s 440 --> 577             raise CalledProcessError(retcode, process.args,
+200.4s 441 578                                      output=stdout, stderr=stderr)
+200.4s 442 579     return CompletedProcess(process.args, retcode, stdout, stderr)
+200.4s 443 
+200.4s 444 CalledProcessError: Command '['/usr/bin/python3', '-u', '-m', 'torch.distributed.run', '--standalone', '--nnodes=1', '--nproc_per_node=2', '/kaggle/temp/personal_yolov1_repo/code/train.py', '--config', '/kaggle/temp/personal_yolov1_repo/code/configs/smoke_ddp.json', '--data', '/kaggle/input/datasets/stpeteishii/pascal-voc-2007-dataset/VOCdevkit2007/VOC2007', '--output', '/kaggle/working/yolov1_voc2007_smoke_01', '--device', 'cuda', '--max-hours', '8.95691850391611', '--zip', '/kaggle/working/yolov1_voc2007_smoke_01.zip', '--pretrained', '/kaggle/temp/personal_yolov1_repo/code/pretrain/extraction.conv.weights']' returned non-zero exit status 1.
+200.4s 445 
+202.8s 446 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+202.8s 447 cells[i][c] = re.sub('\\\\\|', '|', cell)
+203.0s 448 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+203.0s 449 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+203.8s 450 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+203.9s 451 [NbConvertApp] Writing 27674 bytes to __notebook__.ipynb
+206.3s 452 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+206.9s 453 [NbConvertApp] Writing 318916 bytes to __results__.html

@@ -167,3 +167,13 @@ python -m torch.distributed.run --standalone --nnodes=1 --nproc_per_node=2 train
 ```
 
 Không nhân learning rate thêm với số GPU: effective batch chính thức vẫn là 16 như cấu hình một GPU ban đầu. Chưa có benchmark GPU/T4 hoặc bảo đảm tốc độ tăng gấp đôi; kiểm tra thực tế bằng `smoke` trên Kaggle trước.
+
+## AMP overflow và log gradient non-finite
+
+Log `logs/yolov1-pascal-voc-2007.log` của lần chạy đầu cho thấy hai T4/NCCL đã khởi động, dataset và pretrained path đúng. Lỗi đầu tiên nằm ở gradient clipping trong bước update đầu, khi AMP bật. Phiên bản cũ dừng bằng `error_if_nonfinite=True` trước khi xử lý loss-scale overflow; `ChildFailedError` và lỗi notebook chỉ là hệ quả.
+
+Bản sửa đặt `amp_init_scale=128` trong configs (thay vì mặc định GradScaler 65536). Sau unscale, `precision.py` kiểm tra norm trước khi sửa gradient. Nếu non-finite khi AMP bật, mọi rank cùng bỏ qua update và giảm loss scale; không cập nhật weights/momentum từ gradient lỗi. Gradient hữu hạn được clip rồi mới optimizer step. Log ghi scale trước/sau, `history.csv` ghi số optimizer steps thành công và AMP skips; `global_step` chỉ đếm update thành công. Nếu cả epoch không có update nào thành công, chương trình báo lỗi rõ ràng, không xuất một lượt train thành công giả. Gradient non-finite ở FP32 vẫn làm fail để chẩn đoán.
+
+Để chạy lại: push cả `precision.py`, `train.py` và configs; chọn commit mới trong `REPO_REF` (hoặc `main`), đặt tên mới như `yolov1_voc2007_smoke_02`, để `RESUME_PATH=""`. Lần fail trước ở update đầu nên không có checkpoint hoàn tất epoch để resume. Nếu cần cô lập lỗi số học còn lại, tạo config `amp=false` để chạy FP32; chưa cần giảm learning rate chỉ vì overflow ở update đầu.
+
+Tham khảo hành vi loss scaling/clipping: [PyTorch AMP examples](https://docs.pytorch.org/docs/stable/notes/amp_examples.html). Tests tái hiện finite YOLO loss nhưng backward FP16 overflow với scale 65536, kiểm tra backoff/recovery, scale 128, clipping hữu hạn và skip đồng bộ giữa hai rank kể cả chỉ một rank bị inject overflow. Đây là kiểm tra local CPU FP16/Gloo; không thay cho chạy lại trên T4.

@@ -28,5 +28,6 @@
   "demo_threshold": 0.25,
   "example_count": 10,
   "log_every": 50,
-  "export_reserve_seconds": 600
+  "export_reserve_seconds": 600,
+  "amp_init_scale": 128.0
 }

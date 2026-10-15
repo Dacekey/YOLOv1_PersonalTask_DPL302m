@@ -21,6 +21,7 @@ from export_results import export_results
 from loss import YOLOv1Loss
 from predict import save_dataset_examples
 from pretrained import load_pretrained
+from precision import optimizer_step
 from run_utils import (atomic_save, load_detector, restore_rng, rng_state, runtime_info,
                        seed_everything, seed_worker, write_json)
 from yolov1 import YOLOv1
@@ -122,9 +123,11 @@ def train_run(config, data, output, pretrained_path=None, resume=None, device="c
 
     scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_factor)
     amp = bool(config.get("amp", True) and device.type == "cuda")
-    scaler = torch.amp.GradScaler("cuda", enabled=amp)
+    scaler = torch.amp.GradScaler("cuda", enabled=amp,
+                                 init_scale=config.get("amp_init_scale", 128.0))
     criterion = YOLOv1Loss(config.get("lambda_coord", 5), config.get("lambda_noobj", 0.5))
     history, best_map, global_step, start_epoch = [], -1.0, 0, 0
+    amp_skipped_updates = 0
     if checkpoint:
         for key in ("optimizer", "scheduler", "scaler", "rng", "loader_rng"):
             if key not in checkpoint:
@@ -138,6 +141,10 @@ def train_run(config, data, output, pretrained_path=None, resume=None, device="c
         resume_rng = state["rng"]
         generator.set_state(state["loader_rng"].cpu())
         history, best_map = checkpoint["history"], checkpoint["best_map"]
+        amp_skipped_updates = checkpoint.get("amp_skipped_updates", 0)
+        for old_row in history:
+            old_row.setdefault("optimizer_steps", 0)
+            old_row.setdefault("amp_skipped_updates", 0)
         global_step, start_epoch = checkpoint["global_step"], checkpoint["epoch"] + 1
         # Resume needs just last.pt; its best-state pointer is reconstructed if supplied alongside it.
         sibling_best = Path(resume).parent / "best.pt"
@@ -164,6 +171,7 @@ def train_run(config, data, output, pretrained_path=None, resume=None, device="c
         "evaluation_split": "train (overfit diagnostic)" if config.get("overfit") else "val",
         "pretrained": pretrained_metadata, "resume": str(resume) if resume else None,
         "parameters": sum(p.numel() for p in model.parameters()), "amp": amp,
+        "amp_initial_loss_scale": float(scaler.get_scale()),
         "world_size": world, "distributed_backend": dist.get_backend() if world > 1 else None,
         "per_gpu_batch_size": config["batch_size"],
         "effective_batch_size": config["batch_size"] * config["accumulation"] * world,
@@ -194,6 +202,7 @@ def train_run(config, data, output, pretrained_path=None, resume=None, device="c
         dist.barrier()
     logger.info("DDP world_size=%d; per-GPU batch=%d; accumulation=%d; effective batch=%d",
                 world, config["batch_size"], config["accumulation"], manifest["effective_batch_size"])
+    logger.info("AMP=%s; initial/current loss scale=%g", amp, scaler.get_scale())
     reason = "completed"
     try:
         for epoch in range(start_epoch, config["epochs"]):
@@ -208,6 +217,7 @@ def train_run(config, data, output, pretrained_path=None, resume=None, device="c
             model.train(); optimizer.zero_grad(set_to_none=True)
             totals = {k: 0.0 for k in ("loss", "xy", "wh", "object", "no_object", "class")}
             seen = 0
+            epoch_steps, epoch_skips = 0, 0
             epoch_lr = optimizer.param_groups[0]["lr"]
             for batch_index, (images, targets) in enumerate(train_loader):
                 images = images.to(device, non_blocking=True)
@@ -227,17 +237,27 @@ def train_run(config, data, output, pretrained_path=None, resume=None, device="c
                         raise FloatingPointError(f"Non-finite loss at epoch {epoch}, batch {batch_index}")
                     scaler.scale(loss * images.shape[0] / group_samples).backward()
                 if boundary:
-                    scaler.unscale_(optimizer)
-                    torch.nn.utils.clip_grad_norm_(model.parameters(), config.get("grad_clip", 10),
-                                                   error_if_nonfinite=True)
-                    scaler.step(optimizer); scaler.update(); optimizer.zero_grad(set_to_none=True)
-                    global_step += 1
+                    step_result = optimizer_step(model, optimizer, scaler,
+                                                 config.get("grad_clip", 10), device)
+                    manifest["amp_last_loss_scale"] = step_result["scale_after"]
+                    if step_result["applied"]:
+                        global_step += 1
+                        epoch_steps += 1
+                    else:
+                        epoch_skips += 1
+                        amp_skipped_updates += 1
+                        logger.warning("AMP overflow: epoch=%d batch=%d; update skipped on all ranks; scale=%g -> %g",
+                                       epoch + 1, batch_index + 1, step_result["scale_before"],
+                                       step_result["scale_after"])
                 n = images.shape[0]; seen += n
                 for key, value in {"loss": float(loss.detach()), **terms}.items():
                     totals[key] += value * n
                 if batch_index % config.get("log_every", 50) == 0:
                     logger.info("epoch=%d batch=%d/%d loss=%.5f", epoch + 1, batch_index + 1,
                                 len(train_loader), float(loss.detach()))
+            if epoch_steps == 0:
+                raise FloatingPointError("No optimizer updates succeeded this epoch: AMP gradients overflowed. "
+                                         "Reduce amp_init_scale or set amp=false for an FP32 diagnostic run.")
             # Rank zero evaluates the full validation set with the unwrapped module.
             # No DistributedSampler padding can duplicate validation images.
             metrics = evaluate_model(bare_model, val_loader, device, config)[0] if primary else None
@@ -251,7 +271,8 @@ def train_run(config, data, output, pretrained_path=None, resume=None, device="c
             row = {"epoch": epoch + 1, "train_loss": totals["loss"] / seen,
                    "val_loss": metrics["loss"], "map50": metrics["map50"], "lr": epoch_lr,
                    "seconds": time.monotonic() - epoch_started,
-                   **{k: totals[k] / seen for k in totals if k != "loss"}}
+                   **{k: totals[k] / seen for k in totals if k != "loss"},
+                   "optimizer_steps": epoch_steps, "amp_skipped_updates": epoch_skips}
             history.append(row)
             if primary:
                 write_history(output / "history.csv", history)
@@ -267,6 +288,7 @@ def train_run(config, data, output, pretrained_path=None, resume=None, device="c
                 atomic_save({**base, "optimizer": optimizer.state_dict(), "scheduler": scheduler.state_dict(),
                              "scaler": scaler.state_dict(), "rng": states[0]["rng"],
                              "loader_rng": states[0]["loader_rng"], "rank_states": states, "world_size": world,
+                             "amp_skipped_updates": amp_skipped_updates,
                              "history": history}, output / "checkpoints/last.pt")
             logger.info("Epoch %d: train=%.5f val=%.5f mAP50=%.5f seconds=%.1f", epoch + 1,
                         row["train_loss"], row["val_loss"], row["map50"], row["seconds"])
@@ -299,12 +321,14 @@ def train_run(config, data, output, pretrained_path=None, resume=None, device="c
                 save_metrics(metrics, predictions, output)
             manifest.update({"status": reason, "completed_epochs": history[-1]["epoch"] if history else 0,
                              "best_map50": best_map if history else None,
+                             "global_step": global_step, "amp_skipped_updates": amp_skipped_updates,
                              "session_seconds": time.monotonic() - started,
                              "peak_cuda_allocated_bytes": torch.cuda.max_memory_allocated()
                              if device.type == "cuda" else None})
             write_json(output / "run_manifest.json", manifest)
     except BaseException as error:
-        manifest.update({"status": "failed", "error": f"{type(error).__name__}: {error}"})
+        manifest.update({"status": "failed", "error": f"{type(error).__name__}: {error}",
+                         "global_step": global_step, "amp_skipped_updates": amp_skipped_updates})
         if primary:
             write_json(output / "run_manifest.json", manifest)
         logger.exception("Training failed; last.pt contains the last completed epoch, if any")

@@ -29,5 +29,6 @@
   "example_count": 10,
   "log_every": 50,
   "export_reserve_seconds": 600,
-  "expected_world_size": 2
+  "expected_world_size": 2,
+  "amp_init_scale": 128.0
 }
