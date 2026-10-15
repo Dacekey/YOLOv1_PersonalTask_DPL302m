@@ -2,8 +2,8 @@
   "checked_date": "2026-10-15",
   "unit_and_integration_tests": {
     "command": "python -m pytest tests -q",
-    "passed": 11,
-    "last_duration_seconds": 4.13,
+    "passed": 14,
+    "last_duration_seconds": 29.35,
     "coverage": [
       "strict 16-conv pretrained loading and finite numerical prefix forward",
       "VOC XML coordinates and missing-split rejection",
@@ -13,7 +13,12 @@
       "VOC 11-point AP, difficult matches and duplicate detections",
       "train/checkpoint/resume/evaluate/examples/ZIP with a small test detector",
       "resumed parameters exactly match uninterrupted small-network training",
-      "all notebook Python cells compile"
+      "all notebook Python cells compile",
+      "two-process CPU/Gloo DDP training with no_sync and final partial accumulation group",
+      "DDP rank-specific RNG/loader state and exact resume parameter equality",
+      "rank-zero-only validation/checkpoint/export",
+      "DDP DataLoader spawn workers",
+      "Kaggle two-GPU launcher and repo-relative pretrained path checks"
     ]
   },
   "full_model_cpu_smoke": {
@@ -66,24 +71,48 @@
   "source_sha256": {
     "boxes.py": "73c7a3ae684309a077912d1226e45d7e34b33bd398dcc108f75f4548afcb7819",
     "configs/overfit.json": "96481e7b6c82d69eae88510ce582f0744c0931affbcbfe18134bc0b754c39359",
+    "configs/overfit_ddp.json": "7376b43e809ec4c0b0a15acebbe58ad5fa6640eabf932abe206e2da53c44e841",
     "configs/smoke.json": "14927bb4d5ca0b85367f19ce4c535f1f4ef0851f1b78a8490afb6e7ec3363682",
+    "configs/smoke_ddp.json": "305b2d5d916b416d549e24ab047ef9d9cda2154ba025cd611bf1412433d939e4",
     "configs/voc2007.json": "bf30ba5dd5b551b428149ddbe9e34e24b3acb305302a4083cdf7335cca171324",
+    "configs/voc2007_ddp.json": "550962125b53644d2cfda363a116f6a8681c1dc6198a366f6385158a68c1e3d9",
     "dataset.py": "b74a10777db8cc9fe56365da26adb3339434cec5dcd859358d6d019aadb69d4c",
     "dataset_check.json": "be4a88c8cb07c5a6707ec69df589d780a187fa0cf847ec56ec83fc7fba3bb59e",
+    "distributed_utils.py": "601f608f58b1bab593d38f1f387e4282d84e915ef887f6523c9ba0b0c6dd8b79",
     "evaluate.py": "328918d1e69861d882360033ec33e474efc4975880b5b4eafe853946f966804c",
     "export_results.py": "a855151686f7c900a2abcdd765142bc48126e6b8c1a502b63d24c89b6f77d0ff",
     "inspect_model.py": "207aaa2a028abbf2482dea0084a5f7311364bb9f009b67daaea460a5750227ab",
     "loss.py": "05058792e9fdaf38009b2b3c2c1031a75bee1ad87583c3b55c1231fdcf2d190d",
-    "notebooks/kaggle_train_yolov1.ipynb": "e37f3ff8d74c83a00b94ba722bc7ca06335417467673c83bc384f6f0231246a5",
+    "notebooks/kaggle_train_yolov1.ipynb": "3476599c7ee54f3ddf730ae2526513771514cf44d2eabcd54167c72119668dfc",
     "predict.py": "ce76b981b2f0a0efe24727de3bbba5d8619edc9cc1325333d2b97ba3942a9383",
     "pretrained.py": "0133774df62e07c19f35e37b50e8e15971294adc885bb81ed7972ceddfb00927",
     "run_utils.py": "0050381cbc4445c6d05f097b517e8b0efa980c8fcad24d2897cb8941825cdebc",
     "tests/conftest.py": "61d917466d000f076e8c5ed631cbc461fbb128df7dc8b8dfc89aed11143b7a1e",
+    "tests/ddp_worker.py": "85380dbe389de43d82721fc4c40b4d9b734634cdf8709e2a01acb504acfa63d0",
     "tests/test_detection.py": "883d0e285bd681202462b80d9a325dda572213cdfe65fd3d9c451e49458ac803",
+    "tests/test_distributed.py": "363e4b20370fc711a449dc22f7b27aca5ee241b42938b852fe5ed2e4db4f8fd5",
     "tests/test_pretrained.py": "c52f7010eca3074a40050f4081646d0c71aae92a1f64fa42219ec7799fa3b20d",
-    "train.py": "25e122e34cdbfbc9e47b171fbd64117220ee686e6f78e21d352a934f7faebb77",
+    "train.py": "49351589ac4588b7b84897d806d37f7b06609455ba9831604b1d7a71fe3acb39",
     "verification.json": "c6d4de5884c7be9dc598c77973871a8895f536660db0b5c5f622976f1e863022",
     "verification_meta.json": "3c04c367d23fafc64b6ca9aa5b5c21f8607f22e1cf1f06db5f097576b068dd25",
     "yolov1.py": "c6d74c62d49414dd10cd1ac4039b72a02502fe4f7edc13a6ee628a4b5f811f81"
+  },
+  "ddp_update": {
+    "checked_date": "2026-10-15",
+    "backend_tested": "CPU/Gloo, two actual torchrun processes with a small test detector",
+    "cuda_nccl_tested": false,
+    "notebook_repository": "https://github.com/Dacekey/YOLOv1_PersonalTask_DPL302m.git",
+    "repo_root_layout": "paper/Personal_Task, with code/ below root",
+    "remote_checked_commit": "a7f75a4d8855e4ada4e0661cfec9f571bb6897d6",
+    "remote_pretrained_path": "code/pretrain/extraction.conv.weights",
+    "remote_pretrained_bytes": 47657232,
+    "remote_pretrained_sha256": "048f832fbaddec03256f2c1cf380e5694d6b580f24639515587daa358ff32e9f",
+    "gpu_processes": 2,
+    "train_per_gpu_micro_batch": 1,
+    "train_accumulation": 8,
+    "train_effective_batch_size": 16,
+    "validation_policy": "Full validation on rank 0, no distributed padding",
+    "save_policy": "Only rank 0 writes checkpoints, metrics, images, logs and ZIP",
+    "resume_policy": "Same world size required; RNG and DataLoader generator saved for every rank"
   }
 }

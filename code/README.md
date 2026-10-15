@@ -6,18 +6,18 @@ Implementation phục vụ yêu cầu **Simple demo / implementation example** t
 
 Remote GitHub của bạn có thư mục gốc giống `paper/Personal_Task`, tức chứa `code/`, `YOLO_Paper/`, `LaTeX/`… Notebook clone sparse **`code/`** từ repo đó.
 
-1. Push `code/` lên GitHub, gồm các file Python, configs, notebook và `code/pretrain/extraction.conv.weights` nếu muốn lấy weights từ GitHub. File này khoảng 47,7 MB. Hoặc gắn nó dưới dạng Kaggle Dataset riêng; notebook ưu tiên weights đã attach. Không commit kết quả train/checkpoints.
+1. Push `code/` lên GitHub, gồm các file Python, configs, notebook và `code/pretrain/extraction.conv.weights` nếu muốn lấy weights từ GitHub. File này khoảng 47,7 MB. Hoặc gắn nó dưới dạng Kaggle Dataset riêng và đặt `PRETRAINED_PATH` thành đường dẫn tuyệt đối tới file đó. Không commit kết quả train/checkpoints.
 2. Upload `notebooks/kaggle_train_yolov1.ipynb` lên Kaggle.
 3. **Add Input**: [stpeteishii/pascal-voc-2007-dataset](https://www.kaggle.com/datasets/stpeteishii/pascal-voc-2007-dataset/data).
-4. Bật **GPU** và **Internet**. Notebook dùng một GPU; không tự gộp VRAM của hai GPU.
+4. Chọn **GPU T4 ×2** và bật **Internet**. Notebook yêu cầu đúng 2 GPU, khởi chạy `torch.distributed.run --nproc_per_node=2` và DDP/NCCL, một process trên mỗi GPU. VRAM không được gộp thành một vùng 32 GB.
 5. Sửa cell settings:
 
 ```python
-REPO_URL = "https://github.com/USERNAME/REPOSITORY.git"
+REPO_URL = "https://github.com/Dacekey/YOLOv1_PersonalTask_DPL302m.git"
 REPO_REF = "FULL_COMMIT_HASH"  # commit chứa các file implementation
 RUN_MODE = "smoke"             # smoke | overfit | train
 DATASET_DIR = ""                # tự tìm; đặt rõ nếu attach nhiều bộ VOC
-PRETRAINED_PATH = ""            # tự tìm attached weights hoặc code/pretrain/
+PRETRAINED_PATH = "code/pretrain/extraction.conv.weights"  # tương đối từ root repo
 RESUME_PATH = ""                # để trống ở lượt đầu
 MAX_HOURS = 9.0                 # chọn thấp hơn giới hạn phiên thực tế
 RUN_NAME = "yolov1_smoke_01"     # mỗi lượt mới dùng tên mới
@@ -69,7 +69,7 @@ python pretrained.py pretrain/extraction.conv.weights
 - Decode dùng class × confidence sau khi chặn giá trị âm riêng từng thành phần; không để hai giá trị âm nhân thành score dương. Không clip score về 1. NMS theo lớp. Validation dùng score threshold `0.001`, NMS `0.5`, tối đa `300` detection/ảnh; hình demo dùng `0.25`. Đây là các lựa chọn implementation được lưu cùng metrics.
 - Metric: **VOC 2007 11-point AP, IoU > 0.5** theo điều kiện strict của devkit. Class không có GT thường được ghi AP `null` và loại khỏi trung bình; `classes_with_gt` giúp nhận ra giới hạn của smoke/overfit. Train/val đầy đủ có đủ 20 lớp.
 
-`voc2007.json`: SGD momentum 0.9, decay 5e-4, LR phần mới 1e-3, LR conv pretrained bằng 0.1 lần, warmup 3 epoch, giảm 10 lần tại epoch index 30 và 45, 50 epoch, micro-batch 2, accumulation 8. AMP trên CUDA, clip gradient norm 10. Đây là **cấu hình khởi điểm**, cần pilot/điều chỉnh; không phải recipe paper gốc. Có thể tạo config pilot riêng 3–5 epoch trước lượt 50 epoch; phải chốt config trước khi resume.
+Cấu hình một GPU `voc2007.json`: SGD momentum 0.9, decay 5e-4, LR phần mới 1e-3, LR conv pretrained bằng 0.1 lần, warmup 3 epoch, giảm 10 lần tại epoch index 30 và 45, 50 epoch, micro-batch 2, accumulation 8. AMP trên CUDA, clip gradient norm 10. Đây là **cấu hình khởi điểm**, cần pilot/điều chỉnh; không phải recipe paper gốc. Có thể tạo config pilot riêng 3–5 epoch trước lượt 50 epoch; phải chốt config trước khi resume.
 
 Model lớn: ~1 GiB weights FP32, thêm gradients, momentum và activations. Đo bằng smoke trên GPU thực tế. Nếu OOM, giảm `batch_size` xuống 1; tăng `accumulation` để giữ effective batch. Không cài `requirements.lock.txt` CPU lên Kaggle. Giữ CUDA PyTorch có sẵn; cần torch >= 2.6. Dependency bổ sung ở `requirements-train.txt`.
 
@@ -96,7 +96,7 @@ Không đổi config trong lúc resume. `--random-init` là lựa chọn tườn
 
 ## Resume và thời gian phiên
 
-`last.pt` lưu model, momentum optimizer, scheduler, AMP scaler, epoch/global step, history, Python/NumPy/PyTorch/CUDA RNG và DataLoader generator. Chỉ checkpoint **cuối epoch** là điểm resume; không có mid-epoch replay. Với `num_workers=0`, có kiểm tra resume khớp lượt chạy liên tục trên mạng nhỏ. CUDA có thể vẫn có sai khác số học giữa phần cứng/runtime.
+`last.pt` lưu model, momentum optimizer, scheduler, AMP scaler, epoch/global step, history, Python/NumPy/PyTorch/CUDA RNG và DataLoader generator. Khi DDP, lưu RNG/generator riêng từng rank; resume yêu cầu cùng `world_size`. Checkpoint một GPU trước đây vẫn dùng inference được, nhưng không resume trực tiếp thành hai GPU. Chỉ checkpoint **cuối epoch** là điểm resume; không có mid-epoch replay. Với `num_workers=0`, có kiểm tra resume khớp lượt chạy liên tục trên mạng nhỏ. CUDA có thể vẫn có sai khác số học giữa phần cứng/runtime.
 
 Để tiếp tục trên Kaggle: giải nén ZIP trước, upload hoặc attach thư mục checkpoint thành input (gồm `last.pt` và `best.pt`), đặt `RESUME_PATH` tới `last.pt`, chọn `RUN_NAME` mới. Notebook đọc lại config từ checkpoint. Giữ đủ dataset và các split. `best.pt` dùng inference, không đủ optimizer để resume. Nếu chỉ có `last.pt`, chương trình vẫn resume; nếu không tạo best mới, evaluation ghi rõ dùng last thay vì best bị thiếu.
 
@@ -132,4 +132,38 @@ python -m pytest tests -q
 python inspect_model.py --meta
 ```
 
-Tests bao phủ target encoding/collision, tọa độ XML, loss/gradient, responsible assignment, difficult mask, IoU/NMS, AP/duplicate/difficult, weights 16 conv, code cells notebook và orchestration train→resume→evaluate→ZIP trên mạng nhỏ. Báo cáo kiểm tra thực tế ở `implementation_verification.json`; numerical smoke của model đầy đủ được ghi riêng với đúng dữ liệu và phần cứng sử dụng. Không có kết quả GPU Kaggle hoặc model hội tụ cho tới khi bạn chạy training thực tế.
+Tests gồm cả DDP hai process CPU/Gloo: accumulation với nhóm cuối không đủ batch, sampler padding, rank-zero validation/export và resume khớp tham số lượt chạy liên tục. Tests bao phủ target encoding/collision, tọa độ XML, loss/gradient, responsible assignment, difficult mask, IoU/NMS, AP/duplicate/difficult, weights 16 conv, code cells notebook và orchestration train→resume→evaluate→ZIP trên mạng nhỏ. Báo cáo kiểm tra thực tế ở `implementation_verification.json`; numerical smoke của model đầy đủ được ghi riêng với đúng dữ liệu và phần cứng sử dụng. Không có kết quả GPU Kaggle hoặc model hội tụ cho tới khi bạn chạy training thực tế.
+
+## Cấu hình hai GPU T4 trong notebook
+
+Notebook mặc định dùng `smoke_ddp.json`, `overfit_ddp.json`, `voc2007_ddp.json`. Config một GPU cũ vẫn còn cho CLI chạy riêng.
+
+| Mode | Micro-batch / GPU | Accumulation | Global effective batch | Workers / rank |
+| --- | ---: | ---: | ---: | ---: |
+| smoke | 1 | 1 | 2 | 0 |
+| overfit | 1 | 2 | 4 | 0 |
+| train | 1 | 8 | 16 | 1 |
+
+DDP đồng bộ gradient ở cuối mỗi nhóm accumulation bằng `no_sync()` cho các micro-batch trước đó. Log train loss được tổng hợp từ cả hai rank. `DistributedSampler.set_epoch()` thay shuffle mỗi epoch. Với 2.501 ảnh train, sampler padding một ảnh để mỗi rank có 1.251 mẫu; số duplicate được ghi trong manifest. Validation **chỉ rank 0**, dùng toàn bộ val không padding/duplicate. Chỉ rank 0 ghi checkpoint, ảnh, metrics, log và ZIP; rank 1 chờ khi validation/export. Dataloader có workers trong DDP dùng `spawn` để tránh fork sau khởi tạo NCCL.
+
+Đường dẫn sau clone:
+
+```text
+/kaggle/temp/personal_yolov1_repo/           # root của repo GitHub = paper/Personal_Task
+  code/train.py
+  code/configs/voc2007_ddp.json
+  code/pretrain/extraction.conv.weights     # PRETRAINED_PATH mặc định
+```
+
+`PRETRAINED_PATH` tương đối được nối với `REPO`, không nối với `CODE` hoặc current working directory. Nếu gắn weights bằng Kaggle Dataset riêng, đặt đường dẫn tuyệt đối `/kaggle/input/.../extraction.conv.weights`. Code vẫn kiểm tra đúng checksum trước train. Remote hiện có file weights tại đúng `code/pretrain/extraction.conv.weights`; cần push các thay đổi DDP trước khi chạy notebook mới.
+
+CLI tương đương hai GPU:
+
+```bash
+python -m torch.distributed.run --standalone --nnodes=1 --nproc_per_node=2 train.py \
+  --config configs/voc2007_ddp.json --data /path/to/VOC2007 \
+  --pretrained pretrain/extraction.conv.weights --device cuda \
+  --output /path/to/runs/ddp_train_01 --zip /path/to/ddp_train_01.zip
+```
+
+Không nhân learning rate thêm với số GPU: effective batch chính thức vẫn là 16 như cấu hình một GPU ban đầu. Chưa có benchmark GPU/T4 hoặc bảo đảm tốc độ tăng gấp đôi; kiểm tra thực tế bằng `smoke` trên Kaggle trước.
