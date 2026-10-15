@@ -1,0 +1,9 @@
+Each student
+Read the original paper:
+Problem motivation
+Main idea of the model
+Architecture diagram
+Key innovations compared to previous models
+Advantages and limitations
+Typical applications
+Simple demo / implementation example

@@ -1,0 +1,18 @@
+- v3 head có cái gì? hoặc nhắc lại cho tôi mô tả cái này.
+- v3 có official gọi kiến trúc nó có backbone với head không? theo tôi biết thì khái niệm neck lần đầu được đề cập là ở yolov4 nhỉ? từ đó mà backbone-neck-head trở thành sách giáo khoa?
+- tôi thấy v4 có nhiều khái niệm mới: CSPDarknet53, Dense Connection, SPP, PANet
+
+---
+
+Concept rất đặc trưng của YOLOv4: Bag of Freebies và Bag of Specials
+Mosaic Data Augmentation | Oke
+Self-Adversarial Training — SAT
+CIoU Loss
+Grid Sensitivity
+
+---
+DIoU-NMS
+Mish Activation
+SAM — attention
+PANet
+SPP - Spatial Pyramid Pooling

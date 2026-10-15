@@ -1,0 +1,2 @@
+- Thieu hinh anh minh hoa kien truc, hinh anh duoc inference.
+- phan implement chua duoc thuc hien nen can de trong va bo sung sau.

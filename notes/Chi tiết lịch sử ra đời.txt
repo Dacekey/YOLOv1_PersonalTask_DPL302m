@@ -1,0 +1,16 @@
+Chi tiết lịch sử ra đời của từng thuật ngữ
+1. Head (Bộ dự đoán/Đầu ra) — Xuất hiện khoảng năm 2014 - 2015
+Thuật ngữ "Head" (như Classification Head hay Detection Head) xuất hiện từ rất sớm khi các nhà nghiên cứu bắt đầu sử dụng mạng CNN làm nền tảng.
+• Khi kiến trúc R-CNN (2014) và Faster R-CNN (2015) ra đời, phần cuối cùng đảm nhận nhiệm vụ phân loại (classification) và vẽ khung bao (bounding box regression) được gọi là "Heads" vì nó giống như phần đầu được gắn vào thân mạng nơ-ron.
+
+2. Backbone (Mạng xương sống/Mạng nền) — Phổ biến khoảng năm 2017 - 2018
+Ban đầu, phần này chỉ đơn giản được gọi là "Feature Extractor" (Bộ trích xuất đặc trưng).
+• Khi xu hướng Transfer Learning bùng nổ, người ta nhận thấy có thể lấy các mạng phân loại ảnh nổi tiếng được huấn luyện sẵn trên tập ImageNet (như VGG, ResNet) để làm "khung xương" cho các tác vụ khác (như Phát hiện đối tượng, Phân vùng ngữ nghĩa).
+• Từ khoảng năm 2017 (với bài báo về mạng RetinaNet) cho đến năm 2018 (các nghiên cứu tìm kiếm kiến trúc mạng tự động như DetNAS: Backbone Search for Object Detection), thuật ngữ "Backbone" chính thức thay thế hoàn toàn cho các cách gọi cũ để chỉ phần mạng nền tảng này.
+
+3. Neck (Mạng cổ) — Ra đời chính thức tháng 4 năm 2020
+Đây là thuật ngữ ra đời muộn nhất và có nguồn gốc rõ ràng nhất. Trước năm 2020, các cấu trúc trung gian giúp kết nối đặc trưng đa quy mô như FPN (Feature Pyramid Network - 2017) hay PANet (2018) đã tồn tại nhưng chúng thường được gộp chung vào khái niệm mạng trích xuất đặc trưng hoặc một phần của Head.
+• Vào ngày 23 tháng 4 năm 2020, nhóm tác giả Alexey Bochkovskiy, Chien-Yao Wang và Hong-Yuan Mark Liao xuất bản bài báo YOLOv4.
+• Trong bài báo này, họ đã lần đầu tiên chuẩn hóa cấu trúc tổng quát của một mô hình phát hiện đối tượng hiện đại bằng sơ đồ giải phẫu cơ thể: Input ➔ Backbone ➔ Neck ➔ Head. Các tác giả viết rõ: "Các bộ phát hiện đối tượng phát triển trong những năm gần đây thường chèn một số lớp vào giữa backbone và head... Chúng ta có thể gọi nó là Neck của bộ phát hiện đối tượng."
+
+Nhờ sự thành công vang dội của YOLOv4 và các phiên bản YOLO tiếp theo (YOLOv5, YOLOv8,...), mô hình tư duy tách biệt Backbone – Neck – Head đã trở thành quy chuẩn kiến trúc sách giáo khoa trong ngành Thị giác máy tính ngày nay.

@@ -1,0 +1,115 @@
+\begin{thebibliography}{10}
+
+\bibitem{redmon2016yolo}
+Joseph Redmon, Santosh Divvala, Ross Girshick, and Ali Farhadi.
+\newblock You only look once: Unified, real-time object detection.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, pages 779--788, 2016.
+
+\bibitem{rcnn2014}
+Ross Girshick, Jeff Donahue, Trevor Darrell, and Jitendra Malik.
+\newblock Rich feature hierarchies for accurate object detection and semantic
+  segmentation.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, pages 580--587, 2014.
+
+\bibitem{fastrcnn2015}
+Ross Girshick.
+\newblock Fast {R-CNN}.
+\newblock In {\em Proceedings of the IEEE International Conference on Computer
+  Vision}, pages 1440--1448, 2015.
+
+\bibitem{everingham2010voc}
+Mark Everingham, Luc~Van Gool, Christopher K.~I. Williams, John Winn, and
+  Andrew Zisserman.
+\newblock The {PASCAL} visual object classes ({VOC}) challenge.
+\newblock {\em International Journal of Computer Vision}, 88:303--338, 2010.
+
+\bibitem{redmon2017yolo9000}
+Joseph Redmon and Ali Farhadi.
+\newblock {YOLO9000}: Better, faster, stronger.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, pages 7263--7271, 2017.
+
+\bibitem{redmon2018yolov3}
+Joseph Redmon and Ali Farhadi.
+\newblock {YOLOv3}: An incremental improvement.
+\newblock {\em arXiv preprint arXiv:1804.02767}, 2018.
+
+\bibitem{bochkovskiy2020yolov4}
+Alexey Bochkovskiy, Chien-Yao Wang, and Hong-Yuan~Mark Liao.
+\newblock {YOLOv4}: Optimal speed and accuracy of object detection.
+\newblock {\em arXiv preprint arXiv:2004.10934}, 2020.
+
+\bibitem{ultralytics2020yolov5}
+{Ultralytics}.
+\newblock {YOLOv5}: Repository and v1.0 release notes.
+\newblock \url{https://github.com/ultralytics/yolov5/releases/tag/v1.0}, 2020.
+\newblock Accessed October 13, 2026.
+
+\bibitem{yolov5architecture}
+{Ultralytics}.
+\newblock {YOLOv5} architecture description.
+\newblock
+  \url{https://docs.ultralytics.com/yolov5/tutorials/architecture-description/}.
+\newblock Describes the v6.0/v6.1 implementation; accessed October 13, 2026.
+
+\bibitem{li2022yolov6}
+Chuyi Li, Lulu Li, Hongliang Jiang, et~al.
+\newblock {YOLOv6}: A single-stage object detection framework for industrial
+  applications.
+\newblock {\em arXiv preprint arXiv:2209.02976}, 2022.
+
+\bibitem{li2023yolov6}
+Chuyi Li, Lulu Li, Yifei Geng, et~al.
+\newblock {YOLOv6} v3.0: A full-scale reloading.
+\newblock {\em arXiv preprint arXiv:2301.05586}, 2023.
+
+\bibitem{wang2023yolov7}
+Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan~Mark Liao.
+\newblock {YOLOv7}: Trainable bag-of-freebies sets new state-of-the-art for
+  real-time object detectors.
+\newblock In {\em Proceedings of the IEEE/CVF Conference on Computer Vision and
+  Pattern Recognition}, pages 7464--7475, 2023.
+
+\bibitem{ultralytics2023yolov8}
+Glenn Jocher, Ayush Chaurasia, and Jing Qiu.
+\newblock Ultralytics {YOLOv8}: Model documentation.
+\newblock \url{https://docs.ultralytics.com/models/yolov8/}, 2023.
+\newblock Official software documentation; accessed October 13, 2026.
+
+\bibitem{ultralyticscode}
+{Ultralytics}.
+\newblock Ultralytics model configurations and detection modules, tag v8.3.0.
+\newblock
+  \url{https://github.com/ultralytics/ultralytics/tree/v8.3.0/ultralytics},
+  2024.
+\newblock YOLOv8/YOLO11 configuration, head, block, loss, and NMS modules;
+  accessed October 13, 2026.
+
+\bibitem{wang2024yolov9}
+Chien-Yao Wang, I-Hau Yeh, and Hong-Yuan~Mark Liao.
+\newblock {YOLOv9}: Learning what you want to learn using programmable gradient
+  information.
+\newblock {\em arXiv preprint arXiv:2402.13616}, 2024.
+
+\bibitem{wang2024yolov10}
+Ao~Wang, Hui Chen, Lihao Liu, Kai Chen, Zijia Lin, Jungong Han, and Guiguang
+  Ding.
+\newblock {YOLOv10}: Real-time end-to-end object detection.
+\newblock {\em Advances in Neural Information Processing Systems}, 37, 2024.
+\newblock Also available as arXiv:2405.14458.
+
+\bibitem{ultralytics2024yolo11}
+Glenn Jocher and Jing Qiu.
+\newblock Ultralytics {YOLO11}: Model documentation.
+\newblock \url{https://docs.ultralytics.com/models/yolo11/}, 2024.
+\newblock Official software documentation; accessed October 13, 2026.
+
+\bibitem{tian2025yolov12}
+Yunjie Tian, Qixiang Ye, and David Doermann.
+\newblock {YOLOv12}: Attention-centric real-time object detectors.
+\newblock {\em arXiv preprint arXiv:2502.12524v1}, 2025.
+\newblock Technical report, February 18, 2025.
+
+\end{thebibliography}

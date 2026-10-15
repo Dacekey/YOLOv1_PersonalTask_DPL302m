@@ -1,0 +1,29 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Scope and organization}{2}{subsection.1.1}%
+\contentsline {section}{\numberline {2}Background and Motivation}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}From multi-stage detection to unified prediction}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Why full-image reasoning matters}{2}{subsection.2.2}%
+\contentsline {section}{\numberline {3}YOLOv1: Unified Real-Time Object Detection}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Detection formulation and grid responsibility}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Output representation}{3}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Network architecture}{4}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Training strategy}{5}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Pretraining and detection conversion}{5}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Loss function and responsibility assignment}{6}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Optimization and regularization}{6}{subsubsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.5}Inference and post-processing}{6}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Key Innovations Relative to Earlier Detectors}{8}{section.4}%
+\contentsline {section}{\numberline {5}Experimental Results and Assessment}{8}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Reported performance}{8}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Advantages}{9}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Limitations}{9}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Typical Applications of YOLOv1}{10}{section.6}%
+\contentsline {section}{\numberline {7}Simple Demonstration / Implementation Example}{10}{section.7}%
+\contentsline {section}{\numberline {8}Evolution Beyond YOLOv1}{10}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Reading the family as several research branches}{10}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}From box priors to multi-scale representation: v2--v3}{11}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Optimizing training and deployment: v4--v7}{11}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Revisiting the head, gradient, and post-processing: v8--v10}{12}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Toward attention-centric features: YOLO11--v12}{12}{subsection.8.5}%
+\contentsline {section}{\numberline {9}Conclusion}{12}{section.9}%
+\contentsline {section}{\numberline {A}YOLO Family Catalogue: v1--v12}{13}{appendix.A}%

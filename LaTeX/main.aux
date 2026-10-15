@@ -1,0 +1,178 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{redmon2016yolo}
+\citation{rcnn2014}
+\citation{fastrcnn2015}
+\citation{redmon2016yolo}
+\citation{rcnn2014}
+\citation{redmon2016yolo}
+\citation{rcnn2014}
+\citation{redmon2016yolo}
+\citation{rcnn2014}
+\citation{redmon2016yolo}
+\citation{fastrcnn2015}
+\citation{redmon2016yolo}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{2}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Scope and organization}{2}{subsection.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Background and Motivation}{2}{section.2}\protected@file@percent }
+\newlabel{sec:background}{{2}{2}{Background and Motivation}{section.2}{}}
+\newlabel{sec:background@cref}{{[section][2][]2}{[1][2][]2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}From multi-stage detection to unified prediction}{2}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Why full-image reasoning matters}{2}{subsection.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces A proposal-based R-CNN-style workflow and YOLOv1's unified prediction workflow. Original schematic based on \cite  {rcnn2014,redmon2016yolo}; both retain post-processing.}}{3}{figure.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:pipelines}{{1}{3}{A proposal-based R-CNN-style workflow and YOLOv1's unified prediction workflow. Original schematic based on \cite {rcnn2014,redmon2016yolo}; both retain post-processing}{figure.caption.1}{}}
+\newlabel{fig:pipelines@cref}{{[figure][1][]1}{[1][2][]3}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}YOLOv1: Unified Real-Time Object Detection}{3}{section.3}\protected@file@percent }
+\newlabel{sec:yolov1}{{3}{3}{YOLOv1: Unified Real-Time Object Detection}{section.3}{}}
+\newlabel{sec:yolov1@cref}{{[section][3][]3}{[1][3][]3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Detection formulation and grid responsibility}{3}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Output representation}{3}{subsection.3.2}\protected@file@percent }
+\citation{redmon2016yolo}
+\citation{redmon2016yolo}
+\citation{redmon2016yolo}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Grid responsibility and the $7\times 7\times 30$ representation. The marked center assigns the illustrated box to one cell; the box itself spans several cells. Original schematic based on \cite  {redmon2016yolo}.}}{4}{figure.caption.2}\protected@file@percent }
+\newlabel{fig:grid}{{2}{4}{Grid responsibility and the $7\times 7\times 30$ representation. The marked center assigns the illustrated box to one cell; the box itself spans several cells. Original schematic based on \cite {redmon2016yolo}}{figure.caption.2}{}}
+\newlabel{fig:grid@cref}{{[figure][2][]2}{[1][4][]4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Network architecture}{4}{subsection.3.3}\protected@file@percent }
+\citation{redmon2016yolo}
+\citation{redmon2016yolo}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces High-level YOLOv1 architecture for the PASCAL VOC configuration.}}{5}{table.caption.3}\protected@file@percent }
+\newlabel{tab:architecture}{{1}{5}{High-level YOLOv1 architecture for the PASCAL VOC configuration}{table.caption.3}{}}
+\newlabel{tab:architecture@cref}{{[table][1][]1}{[1][4][]5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Reserved space for the YOLOv1 architecture diagram.}}{5}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:architecture}{{3}{5}{Reserved space for the YOLOv1 architecture diagram}{figure.caption.4}{}}
+\newlabel{fig:architecture@cref}{{[figure][3][]3}{[1][4][]5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Training strategy}{5}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.1}Pretraining and detection conversion}{5}{subsubsection.3.4.1}\protected@file@percent }
+\citation{redmon2016yolo}
+\citation{redmon2016yolo}
+\citation{redmon2016yolo}
+\citation{redmon2016yolo}
+\citation{redmon2016yolo}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.2}Loss function and responsibility assignment}{6}{subsubsection.3.4.2}\protected@file@percent }
+\newlabel{eq:loss-summary}{{9}{6}{Loss function and responsibility assignment}{equation.3.9}{}}
+\newlabel{eq:loss-summary@cref}{{[equation][9][]9}{[1][5][]6}}
+\newlabel{eq:full-loss}{{10}{6}{Loss function and responsibility assignment}{equation.3.10}{}}
+\newlabel{eq:full-loss@cref}{{[equation][10][]10}{[1][6][]6}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.3}Optimization and regularization}{6}{subsubsection.3.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Inference and post-processing}{6}{subsection.3.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Conditional learning signals in YOLOv1: object presence activates the class term, while maximum-IoU responsibility selects the coordinate-learning predictor. Original schematic based on the loss in \cite  {redmon2016yolo}.}}{7}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:loss}{{4}{7}{Conditional learning signals in YOLOv1: object presence activates the class term, while maximum-IoU responsibility selects the coordinate-learning predictor. Original schematic based on the loss in \cite {redmon2016yolo}}{figure.caption.5}{}}
+\newlabel{fig:loss@cref}{{[figure][4][]4}{[1][6][]7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces YOLOv1 inference, including box decoding and post-processing. The forward network is evaluated once, but score filtering and NMS remain separate operations. Original schematic based on \cite  {redmon2016yolo}.}}{7}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:inference}{{5}{7}{YOLOv1 inference, including box decoding and post-processing. The forward network is evaluated once, but score filtering and NMS remain separate operations. Original schematic based on \cite {redmon2016yolo}}{figure.caption.6}{}}
+\newlabel{fig:inference@cref}{{[figure][5][]5}{[1][6][]7}}
+\citation{rcnn2014}
+\citation{fastrcnn2015}
+\citation{redmon2016yolo}
+\citation{rcnn2014}
+\citation{fastrcnn2015}
+\citation{redmon2016yolo}
+\citation{redmon2016yolo}
+\citation{redmon2016yolo}
+\citation{redmon2016yolo}
+\citation{everingham2010voc}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Key Innovations Relative to Earlier Detectors}{8}{section.4}\protected@file@percent }
+\newlabel{sec:innovations}{{4}{8}{Key Innovations Relative to Earlier Detectors}{section.4}{}}
+\newlabel{sec:innovations@cref}{{[section][4][]4}{[1][8][]8}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Prediction workflows before and in YOLOv1 \cite  {rcnn2014,fastrcnn2015,redmon2016yolo}.}}{8}{table.caption.7}\protected@file@percent }
+\newlabel{tab:previous}{{2}{8}{Prediction workflows before and in YOLOv1 \cite {rcnn2014,fastrcnn2015,redmon2016yolo}}{table.caption.7}{}}
+\newlabel{tab:previous@cref}{{[table][2][]2}{[1][8][]8}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Experimental Results and Assessment}{8}{section.5}\protected@file@percent }
+\newlabel{sec:assessment}{{5}{8}{Experimental Results and Assessment}{section.5}{}}
+\newlabel{sec:assessment@cref}{{[section][5][]5}{[1][8][]8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Reported performance}{8}{subsection.5.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Reported YOLOv1 results on PASCAL VOC 2007 \cite  {redmon2016yolo}.}}{8}{table.caption.8}\protected@file@percent }
+\newlabel{tab:results}{{3}{8}{Reported YOLOv1 results on PASCAL VOC 2007 \cite {redmon2016yolo}}{table.caption.8}{}}
+\newlabel{tab:results@cref}{{[table][3][]3}{[1][8][]8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Advantages}{9}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Limitations}{9}{subsection.5.3}\protected@file@percent }
+\citation{redmon2016yolo}
+\citation{redmon2017yolo9000}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Typical Applications of YOLOv1}{10}{section.6}\protected@file@percent }
+\newlabel{sec:applications}{{6}{10}{Typical Applications of YOLOv1}{section.6}{}}
+\newlabel{sec:applications@cref}{{[section][6][]6}{[1][10][]10}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Simple Demonstration / Implementation Example}{10}{section.7}\protected@file@percent }
+\newlabel{sec:demo}{{7}{10}{Simple Demonstration / Implementation Example}{section.7}{}}
+\newlabel{sec:demo@cref}{{[section][7][]7}{[1][10][]10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Reserved space for input images and YOLOv1 inference results.}}{10}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:demo}{{6}{10}{Reserved space for input images and YOLOv1 inference results}{figure.caption.9}{}}
+\newlabel{fig:demo@cref}{{[figure][6][]6}{[1][10][]10}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Evolution Beyond YOLOv1}{10}{section.8}\protected@file@percent }
+\newlabel{sec:future}{{8}{10}{Evolution Beyond YOLOv1}{section.8}{}}
+\newlabel{sec:future@cref}{{[section][8][]8}{[1][10][]10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Reading the family as several research branches}{10}{subsection.8.1}\protected@file@percent }
+\citation{redmon2018yolov3}
+\citation{bochkovskiy2020yolov4}
+\citation{ultralytics2020yolov5}
+\citation{yolov5architecture}
+\citation{li2022yolov6}
+\citation{li2023yolov6}
+\citation{wang2023yolov7}
+\citation{ultralytics2023yolov8}
+\citation{ultralyticscode}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces A concise map of technical themes beyond YOLOv1. Parallel branches pursue different combinations of architecture, training, and deployment improvements; the diagram summarizes the sources cited in this section.}}{11}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:evolution}{{7}{11}{A concise map of technical themes beyond YOLOv1. Parallel branches pursue different combinations of architecture, training, and deployment improvements; the diagram summarizes the sources cited in this section}{figure.caption.10}{}}
+\newlabel{fig:evolution@cref}{{[figure][7][]7}{[1][10][]11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}From box priors to multi-scale representation: v2--v3}{11}{subsection.8.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Optimizing training and deployment: v4--v7}{11}{subsection.8.3}\protected@file@percent }
+\citation{wang2024yolov9}
+\citation{wang2024yolov10}
+\citation{ultralytics2024yolo11}
+\citation{ultralyticscode}
+\citation{tian2025yolov12}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}Revisiting the head, gradient, and post-processing: v8--v10}{12}{subsection.8.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.5}Toward attention-centric features: YOLO11--v12}{12}{subsection.8.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Conclusion}{12}{section.9}\protected@file@percent }
+\citation{redmon2016yolo}
+\citation{redmon2017yolo9000}
+\citation{redmon2018yolov3}
+\citation{bochkovskiy2020yolov4}
+\citation{ultralytics2020yolov5}
+\citation{yolov5architecture}
+\citation{li2022yolov6}
+\citation{li2023yolov6}
+\citation{wang2023yolov7}
+\citation{ultralytics2023yolov8}
+\citation{ultralyticscode}
+\citation{wang2024yolov9}
+\citation{wang2024yolov10}
+\citation{ultralytics2024yolo11}
+\citation{ultralyticscode}
+\citation{tian2025yolov12}
+\gdef \LT@i {\LT@entry 
+    {1}{51.94687pt}\LT@entry 
+    {1}{66.9055pt}\LT@entry 
+    {1}{130.92421pt}\LT@entry 
+    {1}{196.36563pt}\LT@entry 
+    {1}{194.21065pt}}
+\@writefile{toc}{\contentsline {section}{\numberline {A}YOLO Family Catalogue: v1--v12}{13}{appendix.A}\protected@file@percent }
+\newlabel{sec:appendix}{{A}{13}{YOLO Family Catalogue: v1--v12}{appendix.A}{}}
+\newlabel{sec:appendix@cref}{{[appendix][1][2147483647]A}{[1][13][]13}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Release history, responsible groups, critical improvements, and problem emphasis across the YOLO family.}}{13}{table.4}\protected@file@percent }
+\newlabel{tab:catalogue}{{4}{13}{Release history, responsible groups, critical improvements, and problem emphasis across the YOLO family}{table.4}{}}
+\newlabel{tab:catalogue@cref}{{[table][4][2147483647]4}{[1][13][]13}}
+\bibstyle{unsrt}
+\bibdata{references}
+\bibcite{redmon2016yolo}{1}
+\bibcite{rcnn2014}{2}
+\bibcite{fastrcnn2015}{3}
+\bibcite{everingham2010voc}{4}
+\bibcite{redmon2017yolo9000}{5}
+\bibcite{redmon2018yolov3}{6}
+\bibcite{bochkovskiy2020yolov4}{7}
+\bibcite{ultralytics2020yolov5}{8}
+\bibcite{yolov5architecture}{9}
+\bibcite{li2022yolov6}{10}
+\bibcite{li2023yolov6}{11}
+\bibcite{wang2023yolov7}{12}
+\bibcite{ultralytics2023yolov8}{13}
+\bibcite{ultralyticscode}{14}
+\bibcite{wang2024yolov9}{15}
+\bibcite{wang2024yolov10}{16}
+\bibcite{ultralytics2024yolo11}{17}
+\bibcite{tian2025yolov12}{18}
+\gdef \@abspage@last{16}

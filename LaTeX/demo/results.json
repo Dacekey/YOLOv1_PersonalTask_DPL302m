@@ -1,0 +1,145 @@
+{
+  "description": "Synthetic YOLOv1 post-processing example, not trained-model evaluation",
+  "tensor_shape": [
+    7,
+    7,
+    30
+  ],
+  "geometric_box_slots": 98,
+  "score_threshold": 0.25,
+  "nms_iou_threshold": 0.5,
+  "candidates_before_nms": [
+    {
+      "id": "r3c2b0:dog",
+      "class_id": 11,
+      "label": "dog",
+      "score": 0.81,
+      "box": [
+        0.20000000000000004,
+        0.3178571428571429,
+        0.5,
+        0.6678571428571429
+      ]
+    },
+    {
+      "id": "r3c2b1:dog",
+      "class_id": 11,
+      "label": "dog",
+      "score": 0.675,
+      "box": [
+        0.20714285714285716,
+        0.325,
+        0.5071428571428571,
+        0.675
+      ]
+    },
+    {
+      "id": "r3c4b0:person",
+      "class_id": 14,
+      "label": "person",
+      "score": 0.68,
+      "box": [
+        0.5385714285714287,
+        0.17142857142857143,
+        0.7185714285714286,
+        0.7714285714285714
+      ]
+    },
+    {
+      "id": "r5c5b0:dog",
+      "class_id": 11,
+      "label": "dog",
+      "score": 0.48,
+      "box": [
+        0.66,
+        0.66,
+        0.84,
+        0.84
+      ]
+    },
+    {
+      "id": "r5c5b0:person",
+      "class_id": 14,
+      "label": "person",
+      "score": 0.32000000000000006,
+      "box": [
+        0.66,
+        0.66,
+        0.84,
+        0.84
+      ]
+    }
+  ],
+  "detections_after_nms": [
+    {
+      "id": "r3c2b0:dog",
+      "class_id": 11,
+      "label": "dog",
+      "score": 0.81,
+      "box": [
+        0.20000000000000004,
+        0.3178571428571429,
+        0.5,
+        0.6678571428571429
+      ]
+    },
+    {
+      "id": "r3c4b0:person",
+      "class_id": 14,
+      "label": "person",
+      "score": 0.68,
+      "box": [
+        0.5385714285714287,
+        0.17142857142857143,
+        0.7185714285714286,
+        0.7714285714285714
+      ]
+    },
+    {
+      "id": "r5c5b0:dog",
+      "class_id": 11,
+      "label": "dog",
+      "score": 0.48,
+      "box": [
+        0.66,
+        0.66,
+        0.84,
+        0.84
+      ]
+    },
+    {
+      "id": "r5c5b0:person",
+      "class_id": 14,
+      "label": "person",
+      "score": 0.32000000000000006,
+      "box": [
+        0.66,
+        0.66,
+        0.84,
+        0.84
+      ]
+    }
+  ],
+  "suppressed": [
+    {
+      "id": "r3c2b1:dog",
+      "class_id": 11,
+      "label": "dog",
+      "score": 0.675,
+      "box": [
+        0.20714285714285716,
+        0.325,
+        0.5071428571428571,
+        0.675
+      ]
+    }
+  ],
+  "duplicate_iou": 0.916201117318436,
+  "environment": {
+    "python": "3.12.3",
+    "numpy": "1.26.4",
+    "matplotlib": "3.6.3",
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39"
+  },
+  "checks_passed": true
+}

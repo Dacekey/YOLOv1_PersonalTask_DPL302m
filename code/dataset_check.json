@@ -1,0 +1,42 @@
+{
+  "checked_date": "2026-10-15",
+  "dataset": "https://www.kaggle.com/datasets/stpeteishii/pascal-voc-2007-dataset/data",
+  "root_relative": "VOCdevkit2007/VOC2007",
+  "split_counts": {
+    "train": 2501,
+    "val": 2510,
+    "trainval": 5011
+  },
+  "test_split": "Direct request ImageSets/Main/test.txt returned HTTP 404; runtime inspection remains authoritative.",
+  "checks": [
+    {
+      "file": "VOCdevkit2007/VOC2007/ImageSets/Main/train.txt",
+      "bytes": 17507,
+      "prefix": "000012\n000017\n000023\n000026\n000032\n000033\n000034\n000035\n0000"
+    },
+    {
+      "file": "VOCdevkit2007/VOC2007/ImageSets/Main/val.txt",
+      "bytes": 17570,
+      "prefix": "000005\n000007\n000009\n000016\n000019\n000020\n000021\n000024\n0000"
+    },
+    {
+      "file": "VOCdevkit2007/VOC2007/ImageSets/Main/trainval.txt",
+      "bytes": 35077,
+      "prefix": "000005\n000007\n000009\n000012\n000016\n000017\n000019\n000020\n0000"
+    },
+    {
+      "file": "VOCdevkit2007/VOC2007/ImageSets/Main/test.txt",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "file": "VOCdevkit2007/VOC2007/Annotations/000005.xml",
+      "bytes": 1557,
+      "prefix": "<annotation>\n\t<folder>VOC2007</folder>\n\t<filename>000005.jpg"
+    },
+    {
+      "file": "VOCdevkit2007/VOC2007/JPEGImages/000005.jpg",
+      "bytes": 84988,
+      "prefix": "JPEG"
+    }
+  ]
+}

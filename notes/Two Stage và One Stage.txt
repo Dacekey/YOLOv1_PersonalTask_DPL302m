@@ -1,0 +1,19 @@
+Two-Stage và One-Stage là hai trường phái kiến trúc chính trong bài toán phát hiện đối tượng (Object Detection) thuộc lĩnh vực thị giác máy tính (Computer Vision).
+
+Sự khác biệt cốt lõi giữa hai phương pháp này nằm ở số lượng giai đoạn xử lý để vừa xác định vị trí (localization) vừa phân loại đối tượng (classification).
+
+1. Mạng Two-Stage (Hai giai đoạn)
+Mạng Two-Stage chia quá trình phát hiện đối tượng thành hai bước tuần tự rõ rệt:
+• Giai đoạn 1 (Đề xuất vùng - Region Proposal): Mạng sử dụng một mạng con (như RPN - Region Proposal Network) để quét qua bức ảnh và đề xuất ra các vùng tiềm năng có khả năng chứa đối tượng (gọi là Region of Interest - ROI).
+• Giai đoạn 2 (Phân loại và tinh chỉnh): Lấy các vùng đề xuất từ giai đoạn 1 đem đi phân loại xem đó là vật thể gì và dự đoán chính xác tọa độ khung bao quanh (Bounding Box).
+• Ưu điểm: Độ chính xác rất cao, xử lý tốt các vật thể nhỏ hoặc bị che khuất.
+• Nhược điểm: Tốc độ xử lý chậm hơn, tốn nhiều tài nguyên tính toán.
+• Mô hình tiêu biểu: Faster R-CNN, R-CNN, Mask R-CNN.
+
+
+2. Mạng One-Stage (Một giai đoạn)
+Mạng One-Stage gộp chung hai quá trình tìm vùng chứa vật thể và phân loại thành một bước duy nhất:
+• Nguyên tắc hoạt động: Toàn bộ bức ảnh được đưa qua mạng nơ-ron một lần duy nhất (one forward pass). Mạng sẽ áp dụng lưới (grid-map) và các khung neo định sẵn (anchor boxes) để dự đoán trực tiếp tọa độ khung bao và nhãn của tất cả các đối tượng trên ảnh cùng một lúc.
+• Ưu điểm: Tốc độ suy luận (inference) cực kỳ nhanh, phù hợp cho các ứng dụng thời gian thực (real-time) như camera giám sát hay xe tự lái.
+• Nhược điểm: Độ chính xác tổng thể (đặc biệt với vật thể quá nhỏ hoặc dày đặc) đôi khi thấp hơn Two-Stage (dù các phiên bản cải tiến gần đây đã thu hẹp đáng kể khoảng cách này).
+• Mô hình tiêu biểu: YOLO (You Only Look Once), SSD, RetinaNet.

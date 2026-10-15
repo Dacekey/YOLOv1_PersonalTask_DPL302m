@@ -1,0 +1,2 @@
+Dataset: PASCAL VOC 2007
+- overfit tập nhỏ → chạy thử → train chính thức.

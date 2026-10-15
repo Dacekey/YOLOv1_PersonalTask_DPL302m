@@ -1,0 +1,21 @@
+TRAINING (2.2)
+- pretraining first 20 convolutional layers on ImageNet (Transfer Learning)
+- add four convolutional layers and two fully connected layers
+
+Detection often requires fine-grained visual information so we increase the input resolution of the network from 224 × 224 to 448 × 448.
+
+final layer predicts both class probabilities and bounding box coordinates.
+
+- We normalize the bounding box width and height by the image width and height so that they fall between 0 and 1. 
+- We parametrize the bounding box x and y coordinates to be offsets of a particular grid cell location so they are also bounded between 0 and 1.
+
+Activation Function:
+Use a linear activation function for the final layer and all other layers use the following leaky rectified linear activation.
+
+Opt Metric:
+optimize for sum-squared error in the output of our model. however it does not perfectly align with our goal of maximizing average precision.
+
+We assign one predictor to be “responsible” for predicting an object based on which prediction has the highest current IOU with the ground truth. This leads to specialization between the bounding box predictors. Each predictor gets better at predicting certain sizes, aspect ratios, or classes of object, improving overall recall.
+
+Regularation:
+To avoid overfitting we use dropout and extensive data augmentation.
