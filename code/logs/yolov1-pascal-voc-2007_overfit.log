@@ -1,0 +1,784 @@
+8.7s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.7s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.7s 3 0.00s - to python to disable frozen modules.
+8.7s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+9.4s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+9.4s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+9.4s 7 0.00s - to python to disable frozen modules.
+9.4s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+18.9s 9 Cloning into '/kaggle/temp/personal_yolov1_repo'...
+19.0s 10 PyTorch: 2.11.0+cu128 GPUs: ['Tesla T4', 'Tesla T4']
+19.1s 11 Cloning into '/kaggle/temp/personal_yolov1_repo'...
+19.1s 12 
+19.1s 13 Cloning into '/kaggle/temp/personal_yolov1_repo'...
+19.8s 14 From https://github.com/Dacekey/YOLOv1_PersonalTask_DPL302m
+19.8s 15 * branch            main       -> FETCH_HEAD
+20.0s 16 From https://github.com/Dacekey/YOLOv1_PersonalTask_DPL302m
+20.0s 17 * branch            main       -> FETCH_HEAD
+20.0s 18 
+20.0s 19 From https://github.com/Dacekey/YOLOv1_PersonalTask_DPL302m
+20.0s 20 * branch            main       -> FETCH_HEAD
+21.9s 21 HEAD is now at f424829 Updated: 2
+21.9s 22 Code commit: f4248298d9d2d04e96153e32cd96afe5fb50c128
+21.9s 23 For repeatable runs set REPO_REF to: f4248298d9d2d04e96153e32cd96afe5fb50c128
+21.9s 24 HEAD is now at f424829 Updated: 2
+21.9s 25 
+21.9s 26 HEAD is now at f424829 Updated: 2
+73.5s 27 {'root': '/kaggle/input/datasets/stpeteishii/pascal-voc-2007-dataset/VOCdevkit2007/VOC2007', 'splits': {'train': {'available': True, 'images': 2501, 'objects': 7844, 'difficult': 1543, 'collisions': 421}, 'val': {'available': True, 'images': 2510, 'objects': 7818, 'difficult': 1511, 'collisions': 501}, 'trainval': {'available': True, 'images': 5011, 'objects': 15662, 'difficult': 3054, 'collisions': 922}, 'test': {'available': False}}}
+73.5s 28 Weights: /kaggle/temp/personal_yolov1_repo/code/pretrain/extraction.conv.weights Output: /kaggle/working/yolov1_voc2007_smoke_01.zip
+75.4s 29 
+75.4s 30 *****************************************
+75.4s 31 Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+75.4s 32 *****************************************
+75.6s 33 
+75.6s 34 *****************************************
+75.6s 35 Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+75.6s 36 *****************************************
+75.6s 37 
+75.6s 38 
+75.6s 39 *****************************************
+75.6s 40 Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+75.6s 41 *****************************************
+88.1s 42 2026-10-15 11:51:29,815 Train images=16; validation images=16; params=271703550; AMP=True
+88.1s 43 /usr/local/lib/python3.13/dist-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+88.1s 44 return func(*args, **kwargs)
+88.2s 45 2026-10-15 11:51:29,911 DDP world_size=2; per-GPU batch=1; accumulation=2; effective batch=4
+88.2s 46 2026-10-15 11:51:29,911 AMP=True; initial/current loss scale=128
+88.3s 47 2026-10-15 11:51:29,815 Train images=16; validation images=16; params=271703550; AMP=True
+88.3s 48 /usr/local/lib/python3.13/dist-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+88.3s 49 return func(*args, **kwargs)
+88.3s 50 2026-10-15 11:51:29,911 DDP world_size=2; per-GPU batch=1; accumulation=2; effective batch=4
+88.3s 51 2026-10-15 11:51:29,911 AMP=True; initial/current loss scale=128
+88.3s 52 
+88.3s 53 2026-10-15 11:51:29,815 Train images=16; validation images=16; params=271703550; AMP=True
+88.3s 54 /usr/local/lib/python3.13/dist-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+88.3s 55 return func(*args, **kwargs)
+88.3s 56 2026-10-15 11:51:29,911 DDP world_size=2; per-GPU batch=1; accumulation=2; effective batch=4
+88.3s 57 2026-10-15 11:51:29,911 AMP=True; initial/current loss scale=128
+91.2s 58 /kaggle/temp/personal_yolov1_repo/code/boxes.py:13: UserWarning: Specified kernel cache directory could not be created! This disables kernel caching. Specified directory is /root/.cache/torch/kernels. This warning will appear only once per process. (Triggered internally at /pytorch/aten/src/ATen/native/cuda/jit_utils.cpp:1505.)
+91.2s 59 torch.maximum(a[..., :2], b[..., :2])).clamp_min(0).prod(-1)
+91.4s 60 /kaggle/temp/personal_yolov1_repo/code/boxes.py:13: UserWarning: Specified kernel cache directory could not be created! This disables kernel caching. Specified directory is /root/.cache/torch/kernels. This warning will appear only once per process. (Triggered internally at /pytorch/aten/src/ATen/native/cuda/jit_utils.cpp:1505.)
+91.4s 61 torch.maximum(a[..., :2], b[..., :2])).clamp_min(0).prod(-1)
+91.4s 62 
+91.4s 63 /kaggle/temp/personal_yolov1_repo/code/boxes.py:13: UserWarning: Specified kernel cache directory could not be created! This disables kernel caching. Specified directory is /root/.cache/torch/kernels. This warning will appear only once per process. (Triggered internally at /pytorch/aten/src/ATen/native/cuda/jit_utils.cpp:1505.)
+91.4s 64 torch.maximum(a[..., :2], b[..., :2])).clamp_min(0).prod(-1)
+92.1s 65 2026-10-15 11:51:33,854 epoch=1 batch=1/8 loss=21.85519
+92.3s 66 2026-10-15 11:51:33,854 epoch=1 batch=1/8 loss=21.85519
+92.3s 67 
+92.3s 68 2026-10-15 11:51:33,854 epoch=1 batch=1/8 loss=21.85519
+99.7s 69 2026-10-15 11:51:41,378 Epoch 1: train=18.95078 val=18.77022 mAP50=0.00000 seconds=6.5
+99.7s 70 2026-10-15 11:51:41,461 epoch=2 batch=1/8 loss=20.15039
+99.9s 71 2026-10-15 11:51:41,378 Epoch 1: train=18.95078 val=18.77022 mAP50=0.00000 seconds=6.5
+99.9s 72 2026-10-15 11:51:41,461 epoch=2 batch=1/8 loss=20.15039
+99.9s 73 
+99.9s 74 2026-10-15 11:51:41,378 Epoch 1: train=18.95078 val=18.77022 mAP50=0.00000 seconds=6.5
+99.9s 75 2026-10-15 11:51:41,461 epoch=2 batch=1/8 loss=20.15039
+105.7s 76 2026-10-15 11:51:47,457 Epoch 2: train=18.57504 val=17.87583 mAP50=0.00000 seconds=2.3
+116.6s 77 2026-10-15 11:51:47,529 epoch=3 batch=1/8 loss=19.04399
+116.6s 78 2026-10-15 11:51:47,457 Epoch 2: train=18.57504 val=17.87583 mAP50=0.00000 seconds=2.3
+116.6s 79 2026-10-15 11:51:47,529 epoch=3 batch=1/8 loss=19.04399
+116.6s 80 
+116.6s 81 2026-10-15 11:51:47,457 Epoch 2: train=18.57504 val=17.87583 mAP50=0.00000 seconds=2.3
+116.6s 82 2026-10-15 11:51:47,529 epoch=3 batch=1/8 loss=19.04399
+116.6s 83 2026-10-15 11:51:53,443 Epoch 3: train=17.28414 val=16.21968 mAP50=0.00000 seconds=2.3
+116.6s 84 2026-10-15 11:51:53,518 epoch=4 batch=1/8 loss=11.33288
+116.6s 85 2026-10-15 11:51:53,443 Epoch 3: train=17.28414 val=16.21968 mAP50=0.00000 seconds=2.3
+116.6s 86 2026-10-15 11:51:53,518 epoch=4 batch=1/8 loss=11.33288
+116.6s 87 
+116.6s 88 2026-10-15 11:51:53,443 Epoch 3: train=17.28414 val=16.21968 mAP50=0.00000 seconds=2.3
+116.6s 89 2026-10-15 11:51:53,518 epoch=4 batch=1/8 loss=11.33288
+118.0s 90 2026-10-15 11:51:59,686 Epoch 4: train=15.61357 val=14.22199 mAP50=0.00000 seconds=2.3
+118.0s 91 2026-10-15 11:51:59,758 epoch=5 batch=1/8 loss=15.40471
+118.2s 92 2026-10-15 11:51:59,686 Epoch 4: train=15.61357 val=14.22199 mAP50=0.00000 seconds=2.3
+118.2s 93 2026-10-15 11:51:59,758 epoch=5 batch=1/8 loss=15.40471
+118.2s 94 
+118.2s 95 2026-10-15 11:51:59,686 Epoch 4: train=15.61357 val=14.22199 mAP50=0.00000 seconds=2.3
+118.2s 96 2026-10-15 11:51:59,758 epoch=5 batch=1/8 loss=15.40471
+125.3s 97 2026-10-15 11:52:07,064 Epoch 5: train=13.52532 val=11.90720 mAP50=0.00000 seconds=2.3
+125.4s 98 2026-10-15 11:52:07,145 epoch=6 batch=1/8 loss=15.61427
+125.6s 99 2026-10-15 11:52:07,064 Epoch 5: train=13.52532 val=11.90720 mAP50=0.00000 seconds=2.3
+125.6s 100 2026-10-15 11:52:07,145 epoch=6 batch=1/8 loss=15.61427
+125.6s 101 
+125.6s 102 2026-10-15 11:52:07,064 Epoch 5: train=13.52532 val=11.90720 mAP50=0.00000 seconds=2.3
+125.6s 103 2026-10-15 11:52:07,145 epoch=6 batch=1/8 loss=15.61427
+138.0s 104 2026-10-15 11:52:19,743 Epoch 6: train=11.08053 val=9.48379 mAP50=0.01240 seconds=2.3
+138.1s 105 2026-10-15 11:52:19,818 epoch=7 batch=1/8 loss=1.95057
+138.2s 106 2026-10-15 11:52:19,743 Epoch 6: train=11.08053 val=9.48379 mAP50=0.01240 seconds=2.3
+138.2s 107 2026-10-15 11:52:19,818 epoch=7 batch=1/8 loss=1.95057
+138.2s 108 
+138.2s 109 2026-10-15 11:52:19,743 Epoch 6: train=11.08053 val=9.48379 mAP50=0.01240 seconds=2.3
+138.2s 110 2026-10-15 11:52:19,818 epoch=7 batch=1/8 loss=1.95057
+150.7s 111 2026-10-15 11:52:32,442 Epoch 7: train=8.65374 val=7.35255 mAP50=0.08733 seconds=2.3
+150.8s 112 2026-10-15 11:52:32,520 epoch=8 batch=1/8 loss=2.26373
+150.9s 113 2026-10-15 11:52:32,442 Epoch 7: train=8.65374 val=7.35255 mAP50=0.08733 seconds=2.3
+150.9s 114 2026-10-15 11:52:32,520 epoch=8 batch=1/8 loss=2.26373
+150.9s 115 
+150.9s 116 2026-10-15 11:52:32,442 Epoch 7: train=8.65374 val=7.35255 mAP50=0.08733 seconds=2.3
+150.9s 117 2026-10-15 11:52:32,520 epoch=8 batch=1/8 loss=2.26373
+159.8s 118 2026-10-15 11:52:41,475 Epoch 8: train=7.18943 val=6.36936 mAP50=0.02727 seconds=2.5
+159.8s 119 2026-10-15 11:52:41,550 epoch=9 batch=1/8 loss=3.21808
+160.0s 120 2026-10-15 11:52:41,475 Epoch 8: train=7.18943 val=6.36936 mAP50=0.02727 seconds=2.5
+160.0s 121 2026-10-15 11:52:41,550 epoch=9 batch=1/8 loss=3.21808
+160.0s 122 
+160.0s 123 2026-10-15 11:52:41,475 Epoch 8: train=7.18943 val=6.36936 mAP50=0.02727 seconds=2.5
+160.0s 124 2026-10-15 11:52:41,550 epoch=9 batch=1/8 loss=3.21808
+169.1s 125 2026-10-15 11:52:50,772 Epoch 9: train=5.96398 val=5.12772 mAP50=0.02582 seconds=2.5
+169.1s 126 2026-10-15 11:52:50,847 epoch=10 batch=1/8 loss=2.06279
+169.3s 127 2026-10-15 11:52:50,772 Epoch 9: train=5.96398 val=5.12772 mAP50=0.02582 seconds=2.5
+169.3s 128 2026-10-15 11:52:50,847 epoch=10 batch=1/8 loss=2.06279
+169.3s 129 
+169.3s 130 2026-10-15 11:52:50,772 Epoch 9: train=5.96398 val=5.12772 mAP50=0.02582 seconds=2.5
+169.3s 131 2026-10-15 11:52:50,847 epoch=10 batch=1/8 loss=2.06279
+200.6s 132 2026-10-15 11:53:22,338 Epoch 10: train=4.63431 val=4.05133 mAP50=0.10334 seconds=2.5
+200.7s 133 2026-10-15 11:53:22,413 epoch=11 batch=1/8 loss=6.10216
+200.8s 134 2026-10-15 11:53:22,338 Epoch 10: train=4.63431 val=4.05133 mAP50=0.10334 seconds=2.5
+200.8s 135 2026-10-15 11:53:22,413 epoch=11 batch=1/8 loss=6.10216
+200.8s 136 
+200.8s 137 2026-10-15 11:53:22,338 Epoch 10: train=4.63431 val=4.05133 mAP50=0.10334 seconds=2.5
+200.8s 138 2026-10-15 11:53:22,413 epoch=11 batch=1/8 loss=6.10216
+209.2s 139 2026-10-15 11:53:30,936 Epoch 11: train=4.01373 val=3.81772 mAP50=0.05578 seconds=2.4
+209.3s 140 2026-10-15 11:53:31,016 epoch=12 batch=1/8 loss=2.84892
+209.4s 141 2026-10-15 11:53:30,936 Epoch 11: train=4.01373 val=3.81772 mAP50=0.05578 seconds=2.4
+209.4s 142 2026-10-15 11:53:31,016 epoch=12 batch=1/8 loss=2.84892
+209.4s 143 
+209.4s 144 2026-10-15 11:53:30,936 Epoch 11: train=4.01373 val=3.81772 mAP50=0.05578 seconds=2.4
+209.4s 145 2026-10-15 11:53:31,016 epoch=12 batch=1/8 loss=2.84892
+216.2s 146 2026-10-15 11:53:37,904 Epoch 12: train=3.86228 val=3.58559 mAP50=0.05966 seconds=2.5
+216.3s 147 2026-10-15 11:53:37,983 epoch=13 batch=1/8 loss=5.17437
+216.4s 148 2026-10-15 11:53:37,904 Epoch 12: train=3.86228 val=3.58559 mAP50=0.05966 seconds=2.5
+216.4s 149 2026-10-15 11:53:37,983 epoch=13 batch=1/8 loss=5.17437
+216.4s 150 
+216.4s 151 2026-10-15 11:53:37,904 Epoch 12: train=3.86228 val=3.58559 mAP50=0.05966 seconds=2.5
+216.4s 152 2026-10-15 11:53:37,983 epoch=13 batch=1/8 loss=5.17437
+227.9s 153 2026-10-15 11:53:49,633 Epoch 13: train=3.50473 val=3.32173 mAP50=0.11277 seconds=2.4
+228.0s 154 2026-10-15 11:53:49,710 epoch=14 batch=1/8 loss=4.42809
+228.1s 155 2026-10-15 11:53:49,633 Epoch 13: train=3.50473 val=3.32173 mAP50=0.11277 seconds=2.4
+228.1s 156 2026-10-15 11:53:49,710 epoch=14 batch=1/8 loss=4.42809
+228.1s 157 
+228.1s 158 2026-10-15 11:53:49,633 Epoch 13: train=3.50473 val=3.32173 mAP50=0.11277 seconds=2.4
+228.1s 159 2026-10-15 11:53:49,710 epoch=14 batch=1/8 loss=4.42809
+236.4s 160 2026-10-15 11:53:58,082 Epoch 14: train=3.39285 val=3.39627 mAP50=0.15588 seconds=2.4
+236.4s 161 2026-10-15 11:53:58,156 epoch=15 batch=1/8 loss=5.40172
+236.6s 162 2026-10-15 11:53:58,082 Epoch 14: train=3.39285 val=3.39627 mAP50=0.15588 seconds=2.4
+236.6s 163 2026-10-15 11:53:58,156 epoch=15 batch=1/8 loss=5.40172
+236.6s 164 
+236.6s 165 2026-10-15 11:53:58,082 Epoch 14: train=3.39285 val=3.39627 mAP50=0.15588 seconds=2.4
+236.6s 166 2026-10-15 11:53:58,156 epoch=15 batch=1/8 loss=5.40172
+252.5s 167 2026-10-15 11:54:14,191 Epoch 15: train=3.51337 val=3.35020 mAP50=0.16101 seconds=2.5
+252.6s 168 2026-10-15 11:54:14,267 epoch=16 batch=1/8 loss=7.89067
+252.7s 169 2026-10-15 11:54:14,191 Epoch 15: train=3.51337 val=3.35020 mAP50=0.16101 seconds=2.5
+252.7s 170 2026-10-15 11:54:14,267 epoch=16 batch=1/8 loss=7.89067
+252.7s 171 
+252.7s 172 2026-10-15 11:54:14,191 Epoch 15: train=3.51337 val=3.35020 mAP50=0.16101 seconds=2.5
+252.7s 173 2026-10-15 11:54:14,267 epoch=16 batch=1/8 loss=7.89067
+259.0s 174 2026-10-15 11:54:20,724 Epoch 16: train=3.38274 val=3.17984 mAP50=0.13959 seconds=2.5
+259.1s 175 2026-10-15 11:54:20,797 epoch=17 batch=1/8 loss=2.02042
+259.2s 176 2026-10-15 11:54:20,724 Epoch 16: train=3.38274 val=3.17984 mAP50=0.13959 seconds=2.5
+259.2s 177 2026-10-15 11:54:20,797 epoch=17 batch=1/8 loss=2.02042
+259.2s 178 
+259.2s 179 2026-10-15 11:54:20,724 Epoch 16: train=3.38274 val=3.17984 mAP50=0.13959 seconds=2.5
+259.2s 180 2026-10-15 11:54:20,797 epoch=17 batch=1/8 loss=2.02042
+265.3s 181 2026-10-15 11:54:26,972 Epoch 17: train=3.26159 val=3.18087 mAP50=0.15790 seconds=2.5
+265.3s 182 2026-10-15 11:54:27,047 epoch=18 batch=1/8 loss=3.00460
+265.5s 183 2026-10-15 11:54:26,972 Epoch 17: train=3.26159 val=3.18087 mAP50=0.15790 seconds=2.5
+265.5s 184 2026-10-15 11:54:27,047 epoch=18 batch=1/8 loss=3.00460
+265.5s 185 
+265.5s 186 2026-10-15 11:54:26,972 Epoch 17: train=3.26159 val=3.18087 mAP50=0.15790 seconds=2.5
+265.5s 187 2026-10-15 11:54:27,047 epoch=18 batch=1/8 loss=3.00460
+271.6s 188 2026-10-15 11:54:33,284 Epoch 18: train=3.24863 val=3.12421 mAP50=0.15678 seconds=2.5
+271.6s 189 2026-10-15 11:54:33,357 epoch=19 batch=1/8 loss=3.79895
+271.8s 190 2026-10-15 11:54:33,284 Epoch 18: train=3.24863 val=3.12421 mAP50=0.15678 seconds=2.5
+271.8s 191 2026-10-15 11:54:33,357 epoch=19 batch=1/8 loss=3.79895
+271.8s 192 
+271.8s 193 2026-10-15 11:54:33,284 Epoch 18: train=3.24863 val=3.12421 mAP50=0.15678 seconds=2.5
+271.8s 194 2026-10-15 11:54:33,357 epoch=19 batch=1/8 loss=3.79895
+279.0s 195 2026-10-15 11:54:40,709 Epoch 19: train=3.16596 val=3.07488 mAP50=0.15317 seconds=2.4
+279.1s 196 2026-10-15 11:54:40,782 epoch=20 batch=1/8 loss=2.24107
+279.2s 197 2026-10-15 11:54:40,709 Epoch 19: train=3.16596 val=3.07488 mAP50=0.15317 seconds=2.4
+279.2s 198 2026-10-15 11:54:40,782 epoch=20 batch=1/8 loss=2.24107
+279.2s 199 
+279.2s 200 2026-10-15 11:54:40,709 Epoch 19: train=3.16596 val=3.07488 mAP50=0.15317 seconds=2.4
+279.2s 201 2026-10-15 11:54:40,782 epoch=20 batch=1/8 loss=2.24107
+301.1s 202 2026-10-15 11:55:02,863 Epoch 20: train=3.20657 val=3.09344 mAP50=0.15232 seconds=2.5
+301.2s 203 2026-10-15 11:55:02,937 epoch=21 batch=1/8 loss=5.64523
+301.4s 204 2026-10-15 11:55:02,863 Epoch 20: train=3.20657 val=3.09344 mAP50=0.15232 seconds=2.5
+301.4s 205 2026-10-15 11:55:02,937 epoch=21 batch=1/8 loss=5.64523
+301.4s 206 
+301.4s 207 2026-10-15 11:55:02,863 Epoch 20: train=3.20657 val=3.09344 mAP50=0.15232 seconds=2.5
+301.4s 208 2026-10-15 11:55:02,937 epoch=21 batch=1/8 loss=5.64523
+309.0s 209 2026-10-15 11:55:10,712 Epoch 21: train=3.17486 val=3.13010 mAP50=0.16650 seconds=2.4
+309.1s 210 2026-10-15 11:55:10,786 epoch=22 batch=1/8 loss=2.08122
+309.2s 211 2026-10-15 11:55:10,712 Epoch 21: train=3.17486 val=3.13010 mAP50=0.16650 seconds=2.4
+309.2s 212 2026-10-15 11:55:10,786 epoch=22 batch=1/8 loss=2.08122
+309.2s 213 
+309.2s 214 2026-10-15 11:55:10,712 Epoch 21: train=3.17486 val=3.13010 mAP50=0.16650 seconds=2.4
+309.2s 215 2026-10-15 11:55:10,786 epoch=22 batch=1/8 loss=2.08122
+315.0s 216 2026-10-15 11:55:16,749 Epoch 22: train=3.21229 val=3.11427 mAP50=0.16431 seconds=2.4
+315.1s 217 2026-10-15 11:55:16,820 epoch=23 batch=1/8 loss=4.99170
+315.2s 218 2026-10-15 11:55:16,749 Epoch 22: train=3.21229 val=3.11427 mAP50=0.16431 seconds=2.4
+315.2s 219 2026-10-15 11:55:16,820 epoch=23 batch=1/8 loss=4.99170
+315.2s 220 
+315.2s 221 2026-10-15 11:55:16,749 Epoch 22: train=3.21229 val=3.11427 mAP50=0.16431 seconds=2.4
+315.2s 222 2026-10-15 11:55:16,820 epoch=23 batch=1/8 loss=4.99170
+325.6s 223 2026-10-15 11:55:27,311 Epoch 23: train=3.17542 val=3.09817 mAP50=0.16749 seconds=2.4
+325.7s 224 2026-10-15 11:55:27,389 epoch=24 batch=1/8 loss=1.44863
+325.8s 225 2026-10-15 11:55:27,311 Epoch 23: train=3.17542 val=3.09817 mAP50=0.16749 seconds=2.4
+325.8s 226 2026-10-15 11:55:27,389 epoch=24 batch=1/8 loss=1.44863
+325.8s 227 
+325.8s 228 2026-10-15 11:55:27,311 Epoch 23: train=3.17542 val=3.09817 mAP50=0.16749 seconds=2.4
+325.8s 229 2026-10-15 11:55:27,389 epoch=24 batch=1/8 loss=1.44863
+338.3s 230 2026-10-15 11:55:40,040 Epoch 24: train=3.18853 val=3.14153 mAP50=0.17799 seconds=2.4
+338.4s 231 2026-10-15 11:55:40,120 epoch=25 batch=1/8 loss=4.72165
+338.5s 232 2026-10-15 11:55:40,040 Epoch 24: train=3.18853 val=3.14153 mAP50=0.17799 seconds=2.4
+338.5s 233 2026-10-15 11:55:40,120 epoch=25 batch=1/8 loss=4.72165
+338.5s 234 
+338.5s 235 2026-10-15 11:55:40,040 Epoch 24: train=3.18853 val=3.14153 mAP50=0.17799 seconds=2.4
+338.5s 236 2026-10-15 11:55:40,120 epoch=25 batch=1/8 loss=4.72165
+347.7s 237 2026-10-15 11:55:49,377 Epoch 25: train=3.19907 val=3.11235 mAP50=0.14396 seconds=2.4
+347.7s 238 2026-10-15 11:55:49,451 epoch=26 batch=1/8 loss=2.09098
+347.9s 239 2026-10-15 11:55:49,377 Epoch 25: train=3.19907 val=3.11235 mAP50=0.14396 seconds=2.4
+347.9s 240 2026-10-15 11:55:49,451 epoch=26 batch=1/8 loss=2.09098
+347.9s 241 
+347.9s 242 2026-10-15 11:55:49,377 Epoch 25: train=3.19907 val=3.11235 mAP50=0.14396 seconds=2.4
+347.9s 243 2026-10-15 11:55:49,451 epoch=26 batch=1/8 loss=2.09098
+364.8s 244 2026-10-15 11:56:06,493 Epoch 26: train=3.21231 val=3.11643 mAP50=0.15233 seconds=2.4
+364.9s 245 2026-10-15 11:56:06,569 epoch=27 batch=1/8 loss=5.72283
+365.0s 246 2026-10-15 11:56:06,493 Epoch 26: train=3.21231 val=3.11643 mAP50=0.15233 seconds=2.4
+365.0s 247 2026-10-15 11:56:06,569 epoch=27 batch=1/8 loss=5.72283
+365.0s 248 
+365.0s 249 2026-10-15 11:56:06,493 Epoch 26: train=3.21231 val=3.11643 mAP50=0.15233 seconds=2.4
+365.0s 250 2026-10-15 11:56:06,569 epoch=27 batch=1/8 loss=5.72283
+371.2s 251 2026-10-15 11:56:12,907 Epoch 27: train=3.19151 val=3.10684 mAP50=0.15964 seconds=2.4
+371.3s 252 2026-10-15 11:56:12,980 epoch=28 batch=1/8 loss=2.27955
+371.4s 253 2026-10-15 11:56:12,907 Epoch 27: train=3.19151 val=3.10684 mAP50=0.15964 seconds=2.4
+371.4s 254 2026-10-15 11:56:12,980 epoch=28 batch=1/8 loss=2.27955
+371.4s 255 
+371.4s 256 2026-10-15 11:56:12,907 Epoch 27: train=3.19151 val=3.10684 mAP50=0.15964 seconds=2.4
+371.4s 257 2026-10-15 11:56:12,980 epoch=28 batch=1/8 loss=2.27955
+391.7s 258 2026-10-15 11:56:33,465 Epoch 28: train=3.24401 val=3.13187 mAP50=0.18116 seconds=2.4
+391.8s 259 2026-10-15 11:56:33,540 epoch=29 batch=1/8 loss=1.29589
+392.0s 260 2026-10-15 11:56:33,465 Epoch 28: train=3.24401 val=3.13187 mAP50=0.18116 seconds=2.4
+392.0s 261 2026-10-15 11:56:33,540 epoch=29 batch=1/8 loss=1.29589
+392.0s 262 
+392.0s 263 2026-10-15 11:56:33,465 Epoch 28: train=3.24401 val=3.13187 mAP50=0.18116 seconds=2.4
+392.0s 264 2026-10-15 11:56:33,540 epoch=29 batch=1/8 loss=1.29589
+405.6s 265 2026-10-15 11:56:47,293 Epoch 29: train=3.22177 val=3.11863 mAP50=0.19013 seconds=2.4
+405.7s 266 2026-10-15 11:56:47,370 epoch=30 batch=1/8 loss=2.37485
+405.8s 267 2026-10-15 11:56:47,293 Epoch 29: train=3.22177 val=3.11863 mAP50=0.19013 seconds=2.4
+405.8s 268 2026-10-15 11:56:47,370 epoch=30 batch=1/8 loss=2.37485
+405.8s 269 
+405.8s 270 2026-10-15 11:56:47,293 Epoch 29: train=3.22177 val=3.11863 mAP50=0.19013 seconds=2.4
+405.8s 271 2026-10-15 11:56:47,370 epoch=30 batch=1/8 loss=2.37485
+411.9s 272 2026-10-15 11:56:53,637 Epoch 30: train=3.17156 val=3.05463 mAP50=0.15962 seconds=2.4
+412.0s 273 2026-10-15 11:56:53,711 epoch=31 batch=1/8 loss=1.34996
+412.1s 274 2026-10-15 11:56:53,637 Epoch 30: train=3.17156 val=3.05463 mAP50=0.15962 seconds=2.4
+412.1s 275 2026-10-15 11:56:53,711 epoch=31 batch=1/8 loss=1.34996
+412.1s 276 
+412.1s 277 2026-10-15 11:56:53,637 Epoch 30: train=3.17156 val=3.05463 mAP50=0.15962 seconds=2.4
+412.1s 278 2026-10-15 11:56:53,711 epoch=31 batch=1/8 loss=1.34996
+418.0s 279 2026-10-15 11:56:59,675 Epoch 31: train=3.12214 val=3.05523 mAP50=0.18865 seconds=2.4
+418.0s 280 2026-10-15 11:56:59,751 epoch=32 batch=1/8 loss=2.81869
+418.2s 281 2026-10-15 11:56:59,675 Epoch 31: train=3.12214 val=3.05523 mAP50=0.18865 seconds=2.4
+418.2s 282 2026-10-15 11:56:59,751 epoch=32 batch=1/8 loss=2.81869
+418.2s 283 
+418.2s 284 2026-10-15 11:56:59,675 Epoch 31: train=3.12214 val=3.05523 mAP50=0.18865 seconds=2.4
+418.2s 285 2026-10-15 11:56:59,751 epoch=32 batch=1/8 loss=2.81869
+434.9s 286 2026-10-15 11:57:16,627 Epoch 32: train=3.13818 val=3.07790 mAP50=0.14549 seconds=2.3
+435.0s 287 2026-10-15 11:57:16,718 epoch=33 batch=1/8 loss=1.70423
+435.1s 288 2026-10-15 11:57:16,627 Epoch 32: train=3.13818 val=3.07790 mAP50=0.14549 seconds=2.3
+435.1s 289 2026-10-15 11:57:16,718 epoch=33 batch=1/8 loss=1.70423
+435.1s 290 
+435.1s 291 2026-10-15 11:57:16,627 Epoch 32: train=3.13818 val=3.07790 mAP50=0.14549 seconds=2.3
+435.1s 292 2026-10-15 11:57:16,718 epoch=33 batch=1/8 loss=1.70423
+441.3s 293 2026-10-15 11:57:23,064 Epoch 33: train=3.16735 val=3.08379 mAP50=0.15709 seconds=2.4
+441.4s 294 2026-10-15 11:57:23,137 epoch=34 batch=1/8 loss=1.27071
+441.6s 295 2026-10-15 11:57:23,064 Epoch 33: train=3.16735 val=3.08379 mAP50=0.15709 seconds=2.4
+441.6s 296 2026-10-15 11:57:23,137 epoch=34 batch=1/8 loss=1.27071
+441.6s 297 
+441.6s 298 2026-10-15 11:57:23,064 Epoch 33: train=3.16735 val=3.08379 mAP50=0.15709 seconds=2.4
+441.6s 299 2026-10-15 11:57:23,137 epoch=34 batch=1/8 loss=1.27071
+449.7s 300 2026-10-15 11:57:31,397 Epoch 34: train=3.21054 val=3.10415 mAP50=0.19641 seconds=2.4
+449.8s 301 2026-10-15 11:57:31,471 epoch=35 batch=1/8 loss=3.57937
+449.9s 302 2026-10-15 11:57:31,397 Epoch 34: train=3.21054 val=3.10415 mAP50=0.19641 seconds=2.4
+449.9s 303 2026-10-15 11:57:31,471 epoch=35 batch=1/8 loss=3.57937
+449.9s 304 
+449.9s 305 2026-10-15 11:57:31,397 Epoch 34: train=3.21054 val=3.10415 mAP50=0.19641 seconds=2.4
+449.9s 306 2026-10-15 11:57:31,471 epoch=35 batch=1/8 loss=3.57937
+455.8s 307 2026-10-15 11:57:37,534 Epoch 35: train=3.18727 val=3.04041 mAP50=0.16605 seconds=2.3
+455.9s 308 2026-10-15 11:57:37,607 epoch=36 batch=1/8 loss=2.29235
+456.0s 309 2026-10-15 11:57:37,534 Epoch 35: train=3.18727 val=3.04041 mAP50=0.16605 seconds=2.3
+456.0s 310 2026-10-15 11:57:37,607 epoch=36 batch=1/8 loss=2.29235
+456.0s 311 
+456.0s 312 2026-10-15 11:57:37,534 Epoch 35: train=3.18727 val=3.04041 mAP50=0.16605 seconds=2.3
+456.0s 313 2026-10-15 11:57:37,607 epoch=36 batch=1/8 loss=2.29235
+463.4s 314 2026-10-15 11:57:45,121 Epoch 36: train=3.07215 val=3.01626 mAP50=0.16420 seconds=2.3
+463.5s 315 2026-10-15 11:57:45,200 epoch=37 batch=1/8 loss=4.95716
+463.6s 316 2026-10-15 11:57:45,121 Epoch 36: train=3.07215 val=3.01626 mAP50=0.16420 seconds=2.3
+463.6s 317 2026-10-15 11:57:45,200 epoch=37 batch=1/8 loss=4.95716
+463.6s 318 
+463.6s 319 2026-10-15 11:57:45,121 Epoch 36: train=3.07215 val=3.01626 mAP50=0.16420 seconds=2.3
+463.6s 320 2026-10-15 11:57:45,200 epoch=37 batch=1/8 loss=4.95716
+483.1s 321 2026-10-15 11:58:04,860 Epoch 37: train=3.11126 val=3.04076 mAP50=0.09089 seconds=2.3
+483.2s 322 2026-10-15 11:58:04,933 epoch=38 batch=1/8 loss=2.13655
+483.4s 323 2026-10-15 11:58:04,860 Epoch 37: train=3.11126 val=3.04076 mAP50=0.09089 seconds=2.3
+483.4s 324 2026-10-15 11:58:04,933 epoch=38 batch=1/8 loss=2.13655
+483.4s 325 
+483.4s 326 2026-10-15 11:58:04,860 Epoch 37: train=3.11126 val=3.04076 mAP50=0.09089 seconds=2.3
+483.4s 327 2026-10-15 11:58:04,933 epoch=38 batch=1/8 loss=2.13655
+491.9s 328 2026-10-15 11:58:13,584 Epoch 38: train=3.15825 val=3.05819 mAP50=0.14515 seconds=2.3
+491.9s 329 2026-10-15 11:58:13,658 epoch=39 batch=1/8 loss=5.64192
+492.1s 330 2026-10-15 11:58:13,584 Epoch 38: train=3.15825 val=3.05819 mAP50=0.14515 seconds=2.3
+492.1s 331 2026-10-15 11:58:13,658 epoch=39 batch=1/8 loss=5.64192
+492.1s 332 
+492.1s 333 2026-10-15 11:58:13,584 Epoch 38: train=3.15825 val=3.05819 mAP50=0.14515 seconds=2.3
+492.1s 334 2026-10-15 11:58:13,658 epoch=39 batch=1/8 loss=5.64192
+498.6s 335 2026-10-15 11:58:20,344 Epoch 39: train=3.13810 val=3.06900 mAP50=0.15863 seconds=2.3
+498.7s 336 2026-10-15 11:58:20,418 epoch=40 batch=1/8 loss=2.24577
+498.8s 337 2026-10-15 11:58:20,344 Epoch 39: train=3.13810 val=3.06900 mAP50=0.15863 seconds=2.3
+498.8s 338 2026-10-15 11:58:20,418 epoch=40 batch=1/8 loss=2.24577
+498.8s 339 
+498.8s 340 2026-10-15 11:58:20,344 Epoch 39: train=3.13810 val=3.06900 mAP50=0.15863 seconds=2.3
+498.8s 341 2026-10-15 11:58:20,418 epoch=40 batch=1/8 loss=2.24577
+505.3s 342 2026-10-15 11:58:27,014 Epoch 40: train=3.15697 val=3.07674 mAP50=0.15336 seconds=2.3
+505.4s 343 2026-10-15 11:58:27,086 epoch=41 batch=1/8 loss=1.79917
+505.5s 344 2026-10-15 11:58:27,014 Epoch 40: train=3.15697 val=3.07674 mAP50=0.15336 seconds=2.3
+505.5s 345 2026-10-15 11:58:27,086 epoch=41 batch=1/8 loss=1.79917
+505.5s 346 
+505.5s 347 2026-10-15 11:58:27,014 Epoch 40: train=3.15697 val=3.07674 mAP50=0.15336 seconds=2.3
+505.5s 348 2026-10-15 11:58:27,086 epoch=41 batch=1/8 loss=1.79917
+511.4s 349 2026-10-15 11:58:33,157 Epoch 41: train=3.11975 val=3.02022 mAP50=0.14384 seconds=2.3
+511.5s 350 2026-10-15 11:58:33,231 epoch=42 batch=1/8 loss=6.81519
+511.6s 351 2026-10-15 11:58:33,157 Epoch 41: train=3.11975 val=3.02022 mAP50=0.14384 seconds=2.3
+511.6s 352 2026-10-15 11:58:33,231 epoch=42 batch=1/8 loss=6.81519
+511.6s 353 
+511.6s 354 2026-10-15 11:58:33,157 Epoch 41: train=3.11975 val=3.02022 mAP50=0.14384 seconds=2.3
+511.6s 355 2026-10-15 11:58:33,231 epoch=42 batch=1/8 loss=6.81519
+517.4s 356 2026-10-15 11:58:39,109 Epoch 42: train=3.12678 val=3.03971 mAP50=0.16792 seconds=2.3
+517.5s 357 2026-10-15 11:58:39,181 epoch=43 batch=1/8 loss=1.36945
+517.6s 358 2026-10-15 11:58:39,109 Epoch 42: train=3.12678 val=3.03971 mAP50=0.16792 seconds=2.3
+517.6s 359 2026-10-15 11:58:39,181 epoch=43 batch=1/8 loss=1.36945
+517.6s 360 
+517.6s 361 2026-10-15 11:58:39,109 Epoch 42: train=3.12678 val=3.03971 mAP50=0.16792 seconds=2.3
+517.6s 362 2026-10-15 11:58:39,181 epoch=43 batch=1/8 loss=1.36945
+534.0s 363 2026-10-15 11:58:55,719 Epoch 43: train=3.10812 val=3.04994 mAP50=0.15596 seconds=2.3
+534.1s 364 2026-10-15 11:58:55,794 epoch=44 batch=1/8 loss=1.36813
+534.2s 365 2026-10-15 11:58:55,719 Epoch 43: train=3.10812 val=3.04994 mAP50=0.15596 seconds=2.3
+534.2s 366 2026-10-15 11:58:55,794 epoch=44 batch=1/8 loss=1.36813
+534.2s 367 
+534.2s 368 2026-10-15 11:58:55,719 Epoch 43: train=3.10812 val=3.04994 mAP50=0.15596 seconds=2.3
+534.2s 369 2026-10-15 11:58:55,794 epoch=44 batch=1/8 loss=1.36813
+540.2s 370 2026-10-15 11:59:01,890 Epoch 44: train=3.15113 val=3.07537 mAP50=0.15468 seconds=2.4
+540.2s 371 2026-10-15 11:59:01,962 epoch=45 batch=1/8 loss=4.81970
+540.4s 372 2026-10-15 11:59:01,890 Epoch 44: train=3.15113 val=3.07537 mAP50=0.15468 seconds=2.4
+540.4s 373 2026-10-15 11:59:01,962 epoch=45 batch=1/8 loss=4.81970
+540.4s 374 
+540.4s 375 2026-10-15 11:59:01,890 Epoch 44: train=3.15113 val=3.07537 mAP50=0.15468 seconds=2.4
+540.4s 376 2026-10-15 11:59:01,962 epoch=45 batch=1/8 loss=4.81970
+546.8s 377 2026-10-15 11:59:08,514 Epoch 45: train=3.14919 val=3.08673 mAP50=0.15152 seconds=2.3
+546.9s 378 2026-10-15 11:59:08,587 epoch=46 batch=1/8 loss=2.66039
+547.0s 379 2026-10-15 11:59:08,514 Epoch 45: train=3.14919 val=3.08673 mAP50=0.15152 seconds=2.3
+547.0s 380 2026-10-15 11:59:08,587 epoch=46 batch=1/8 loss=2.66039
+547.0s 381 
+547.0s 382 2026-10-15 11:59:08,514 Epoch 45: train=3.14919 val=3.08673 mAP50=0.15152 seconds=2.3
+547.0s 383 2026-10-15 11:59:08,587 epoch=46 batch=1/8 loss=2.66039
+562.6s 384 2026-10-15 11:59:24,320 Epoch 46: train=3.14788 val=3.07512 mAP50=0.14283 seconds=2.3
+562.7s 385 2026-10-15 11:59:24,398 epoch=47 batch=1/8 loss=1.48292
+562.8s 386 2026-10-15 11:59:24,320 Epoch 46: train=3.14788 val=3.07512 mAP50=0.14283 seconds=2.3
+562.8s 387 2026-10-15 11:59:24,398 epoch=47 batch=1/8 loss=1.48292
+562.8s 388 
+562.8s 389 2026-10-15 11:59:24,320 Epoch 46: train=3.14788 val=3.07512 mAP50=0.14283 seconds=2.3
+562.8s 390 2026-10-15 11:59:24,398 epoch=47 batch=1/8 loss=1.48292
+571.1s 391 2026-10-15 11:59:32,865 Epoch 47: train=3.21650 val=3.11536 mAP50=0.20448 seconds=2.3
+571.2s 392 2026-10-15 11:59:32,941 epoch=48 batch=1/8 loss=2.13818
+571.4s 393 2026-10-15 11:59:32,865 Epoch 47: train=3.21650 val=3.11536 mAP50=0.20448 seconds=2.3
+571.4s 394 2026-10-15 11:59:32,941 epoch=48 batch=1/8 loss=2.13818
+571.4s 395 
+571.4s 396 2026-10-15 11:59:32,865 Epoch 47: train=3.21650 val=3.11536 mAP50=0.20448 seconds=2.3
+571.4s 397 2026-10-15 11:59:32,941 epoch=48 batch=1/8 loss=2.13818
+587.7s 398 2026-10-15 11:59:49,433 Epoch 48: train=3.17502 val=3.04523 mAP50=0.18530 seconds=2.4
+587.8s 399 2026-10-15 11:59:49,513 epoch=49 batch=1/8 loss=2.73164
+587.9s 400 2026-10-15 11:59:49,433 Epoch 48: train=3.17502 val=3.04523 mAP50=0.18530 seconds=2.4
+587.9s 401 2026-10-15 11:59:49,513 epoch=49 batch=1/8 loss=2.73164
+587.9s 402 
+587.9s 403 2026-10-15 11:59:49,433 Epoch 48: train=3.17502 val=3.04523 mAP50=0.18530 seconds=2.4
+587.9s 404 2026-10-15 11:59:49,513 epoch=49 batch=1/8 loss=2.73164
+595.6s 405 2026-10-15 11:59:57,348 Epoch 49: train=3.09871 val=3.01220 mAP50=0.17934 seconds=2.3
+595.7s 406 2026-10-15 11:59:57,424 epoch=50 batch=1/8 loss=5.76924
+595.8s 407 2026-10-15 11:59:57,348 Epoch 49: train=3.09871 val=3.01220 mAP50=0.17934 seconds=2.3
+595.8s 408 2026-10-15 11:59:57,424 epoch=50 batch=1/8 loss=5.76924
+595.8s 409 
+595.8s 410 2026-10-15 11:59:57,348 Epoch 49: train=3.09871 val=3.01220 mAP50=0.17934 seconds=2.3
+595.8s 411 2026-10-15 11:59:57,424 epoch=50 batch=1/8 loss=5.76924
+605.5s 412 2026-10-15 12:00:07,183 Epoch 50: train=3.09308 val=3.03833 mAP50=0.18025 seconds=2.3
+605.5s 413 2026-10-15 12:00:07,260 epoch=51 batch=1/8 loss=1.52195
+605.7s 414 2026-10-15 12:00:07,183 Epoch 50: train=3.09308 val=3.03833 mAP50=0.18025 seconds=2.3
+605.7s 415 2026-10-15 12:00:07,260 epoch=51 batch=1/8 loss=1.52195
+605.7s 416 
+605.7s 417 2026-10-15 12:00:07,183 Epoch 50: train=3.09308 val=3.03833 mAP50=0.18025 seconds=2.3
+605.7s 418 2026-10-15 12:00:07,260 epoch=51 batch=1/8 loss=1.52195
+614.5s 419 2026-10-15 12:00:16,226 Epoch 51: train=3.12299 val=3.08332 mAP50=0.16651 seconds=2.3
+614.6s 420 2026-10-15 12:00:16,300 epoch=52 batch=1/8 loss=5.00717
+614.7s 421 2026-10-15 12:00:16,226 Epoch 51: train=3.12299 val=3.08332 mAP50=0.16651 seconds=2.3
+614.7s 422 2026-10-15 12:00:16,300 epoch=52 batch=1/8 loss=5.00717
+614.7s 423 
+614.7s 424 2026-10-15 12:00:16,226 Epoch 51: train=3.12299 val=3.08332 mAP50=0.16651 seconds=2.3
+614.7s 425 2026-10-15 12:00:16,300 epoch=52 batch=1/8 loss=5.00717
+621.4s 426 2026-10-15 12:00:23,160 Epoch 52: train=3.14241 val=3.07294 mAP50=0.16976 seconds=2.4
+621.5s 427 2026-10-15 12:00:23,235 epoch=53 batch=1/8 loss=2.84264
+621.6s 428 2026-10-15 12:00:23,160 Epoch 52: train=3.14241 val=3.07294 mAP50=0.16976 seconds=2.4
+621.6s 429 2026-10-15 12:00:23,235 epoch=53 batch=1/8 loss=2.84264
+621.6s 430 
+621.6s 431 2026-10-15 12:00:23,160 Epoch 52: train=3.14241 val=3.07294 mAP50=0.16976 seconds=2.4
+621.6s 432 2026-10-15 12:00:23,235 epoch=53 batch=1/8 loss=2.84264
+635.7s 433 2026-10-15 12:00:37,422 Epoch 53: train=3.17135 val=3.05469 mAP50=0.16807 seconds=2.4
+635.8s 434 2026-10-15 12:00:37,499 epoch=54 batch=1/8 loss=2.31167
+635.9s 435 2026-10-15 12:00:37,422 Epoch 53: train=3.17135 val=3.05469 mAP50=0.16807 seconds=2.4
+635.9s 436 2026-10-15 12:00:37,499 epoch=54 batch=1/8 loss=2.31167
+635.9s 437 
+635.9s 438 2026-10-15 12:00:37,422 Epoch 53: train=3.17135 val=3.05469 mAP50=0.16807 seconds=2.4
+635.9s 439 2026-10-15 12:00:37,499 epoch=54 batch=1/8 loss=2.31167
+650.5s 440 2026-10-15 12:00:52,210 Epoch 54: train=3.12049 val=3.06738 mAP50=0.16675 seconds=2.3
+650.6s 441 2026-10-15 12:00:52,282 epoch=55 batch=1/8 loss=4.23300
+650.7s 442 2026-10-15 12:00:52,210 Epoch 54: train=3.12049 val=3.06738 mAP50=0.16675 seconds=2.3
+650.7s 443 2026-10-15 12:00:52,282 epoch=55 batch=1/8 loss=4.23300
+650.7s 444 
+650.7s 445 2026-10-15 12:00:52,210 Epoch 54: train=3.12049 val=3.06738 mAP50=0.16675 seconds=2.3
+650.7s 446 2026-10-15 12:00:52,282 epoch=55 batch=1/8 loss=4.23300
+656.9s 447 2026-10-15 12:00:58,599 Epoch 55: train=3.11828 val=3.08109 mAP50=0.16595 seconds=2.3
+657.0s 448 2026-10-15 12:00:58,671 epoch=56 batch=1/8 loss=1.51041
+657.1s 449 2026-10-15 12:00:58,599 Epoch 55: train=3.11828 val=3.08109 mAP50=0.16595 seconds=2.3
+657.1s 450 2026-10-15 12:00:58,671 epoch=56 batch=1/8 loss=1.51041
+657.1s 451 
+657.1s 452 2026-10-15 12:00:58,599 Epoch 55: train=3.11828 val=3.08109 mAP50=0.16595 seconds=2.3
+657.1s 453 2026-10-15 12:00:58,671 epoch=56 batch=1/8 loss=1.51041
+665.6s 454 2026-10-15 12:01:07,312 Epoch 56: train=3.16946 val=3.10089 mAP50=0.18859 seconds=2.3
+665.7s 455 2026-10-15 12:01:07,386 epoch=57 batch=1/8 loss=1.48171
+665.8s 456 2026-10-15 12:01:07,312 Epoch 56: train=3.16946 val=3.10089 mAP50=0.18859 seconds=2.3
+665.8s 457 2026-10-15 12:01:07,386 epoch=57 batch=1/8 loss=1.48171
+665.8s 458 
+665.8s 459 2026-10-15 12:01:07,312 Epoch 56: train=3.16946 val=3.10089 mAP50=0.18859 seconds=2.3
+665.8s 460 2026-10-15 12:01:07,386 epoch=57 batch=1/8 loss=1.48171
+674.8s 461 2026-10-15 12:01:16,563 Epoch 57: train=3.15681 val=3.07368 mAP50=0.17820 seconds=2.4
+674.9s 462 2026-10-15 12:01:16,638 epoch=58 batch=1/8 loss=3.62507
+675.1s 463 2026-10-15 12:01:16,563 Epoch 57: train=3.15681 val=3.07368 mAP50=0.17820 seconds=2.4
+675.1s 464 2026-10-15 12:01:16,638 epoch=58 batch=1/8 loss=3.62507
+675.1s 465 
+675.1s 466 2026-10-15 12:01:16,563 Epoch 57: train=3.15681 val=3.07368 mAP50=0.17820 seconds=2.4
+675.1s 467 2026-10-15 12:01:16,638 epoch=58 batch=1/8 loss=3.62507
+686.9s 468 2026-10-15 12:01:28,632 Epoch 58: train=3.08829 val=2.99413 mAP50=0.13615 seconds=2.4
+687.0s 469 2026-10-15 12:01:28,707 epoch=59 batch=1/8 loss=1.51041
+687.1s 470 2026-10-15 12:01:28,632 Epoch 58: train=3.08829 val=2.99413 mAP50=0.13615 seconds=2.4
+687.1s 471 2026-10-15 12:01:28,707 epoch=59 batch=1/8 loss=1.51041
+687.1s 472 
+687.1s 473 2026-10-15 12:01:28,632 Epoch 58: train=3.08829 val=2.99413 mAP50=0.13615 seconds=2.4
+687.1s 474 2026-10-15 12:01:28,707 epoch=59 batch=1/8 loss=1.51041
+693.6s 475 2026-10-15 12:01:35,360 Epoch 59: train=3.12563 val=3.10381 mAP50=0.14471 seconds=2.3
+693.7s 476 2026-10-15 12:01:35,433 epoch=60 batch=1/8 loss=6.12972
+693.8s 477 2026-10-15 12:01:35,360 Epoch 59: train=3.12563 val=3.10381 mAP50=0.14471 seconds=2.3
+693.8s 478 2026-10-15 12:01:35,433 epoch=60 batch=1/8 loss=6.12972
+693.8s 479 
+693.8s 480 2026-10-15 12:01:35,360 Epoch 59: train=3.12563 val=3.10381 mAP50=0.14471 seconds=2.3
+693.8s 481 2026-10-15 12:01:35,433 epoch=60 batch=1/8 loss=6.12972
+702.8s 482 2026-10-15 12:01:44,468 Epoch 60: train=3.15090 val=3.09693 mAP50=0.14789 seconds=2.3
+702.8s 483 2026-10-15 12:01:44,543 epoch=61 batch=1/8 loss=1.30785
+703.0s 484 2026-10-15 12:01:44,468 Epoch 60: train=3.15090 val=3.09693 mAP50=0.14789 seconds=2.3
+703.0s 485 2026-10-15 12:01:44,543 epoch=61 batch=1/8 loss=1.30785
+703.0s 486 
+703.0s 487 2026-10-15 12:01:44,468 Epoch 60: train=3.15090 val=3.09693 mAP50=0.14789 seconds=2.3
+703.0s 488 2026-10-15 12:01:44,543 epoch=61 batch=1/8 loss=1.30785
+711.3s 489 2026-10-15 12:01:52,985 Epoch 61: train=3.10498 val=3.09492 mAP50=0.14481 seconds=2.3
+711.3s 490 2026-10-15 12:01:53,063 epoch=62 batch=1/8 loss=2.04943
+711.5s 491 2026-10-15 12:01:52,985 Epoch 61: train=3.10498 val=3.09492 mAP50=0.14481 seconds=2.3
+711.5s 492 2026-10-15 12:01:53,063 epoch=62 batch=1/8 loss=2.04943
+711.5s 493 
+711.5s 494 2026-10-15 12:01:52,985 Epoch 61: train=3.10498 val=3.09492 mAP50=0.14481 seconds=2.3
+711.5s 495 2026-10-15 12:01:53,063 epoch=62 batch=1/8 loss=2.04943
+717.6s 496 2026-10-15 12:01:59,307 Epoch 62: train=3.10325 val=3.09184 mAP50=0.14481 seconds=2.3
+717.7s 497 2026-10-15 12:01:59,380 epoch=63 batch=1/8 loss=4.45746
+717.8s 498 2026-10-15 12:01:59,307 Epoch 62: train=3.10325 val=3.09184 mAP50=0.14481 seconds=2.3
+717.8s 499 2026-10-15 12:01:59,380 epoch=63 batch=1/8 loss=4.45746
+717.8s 500 
+717.8s 501 2026-10-15 12:01:59,307 Epoch 62: train=3.10325 val=3.09184 mAP50=0.14481 seconds=2.3
+717.8s 502 2026-10-15 12:01:59,380 epoch=63 batch=1/8 loss=4.45746
+723.8s 503 2026-10-15 12:02:05,558 Epoch 63: train=3.09751 val=3.08897 mAP50=0.14481 seconds=2.4
+723.9s 504 2026-10-15 12:02:05,631 epoch=64 batch=1/8 loss=1.33053
+724.0s 505 2026-10-15 12:02:05,558 Epoch 63: train=3.09751 val=3.08897 mAP50=0.14481 seconds=2.4
+724.0s 506 2026-10-15 12:02:05,631 epoch=64 batch=1/8 loss=1.33053
+724.0s 507 
+724.0s 508 2026-10-15 12:02:05,558 Epoch 63: train=3.09751 val=3.08897 mAP50=0.14481 seconds=2.4
+724.0s 509 2026-10-15 12:02:05,631 epoch=64 batch=1/8 loss=1.33053
+735.6s 510 2026-10-15 12:02:17,312 Epoch 64: train=3.09501 val=3.08538 mAP50=0.14481 seconds=2.4
+735.7s 511 2026-10-15 12:02:17,387 epoch=65 batch=1/8 loss=1.37107
+735.8s 512 2026-10-15 12:02:17,312 Epoch 64: train=3.09501 val=3.08538 mAP50=0.14481 seconds=2.4
+735.8s 513 2026-10-15 12:02:17,387 epoch=65 batch=1/8 loss=1.37107
+735.8s 514 
+735.8s 515 2026-10-15 12:02:17,312 Epoch 64: train=3.09501 val=3.08538 mAP50=0.14481 seconds=2.4
+735.8s 516 2026-10-15 12:02:17,387 epoch=65 batch=1/8 loss=1.37107
+741.9s 517 2026-10-15 12:02:23,587 Epoch 65: train=3.09185 val=3.08288 mAP50=0.14481 seconds=2.3
+741.9s 518 2026-10-15 12:02:23,661 epoch=66 batch=1/8 loss=1.35973
+742.1s 519 2026-10-15 12:02:23,587 Epoch 65: train=3.09185 val=3.08288 mAP50=0.14481 seconds=2.3
+742.1s 520 2026-10-15 12:02:23,661 epoch=66 batch=1/8 loss=1.35973
+742.1s 521 
+742.1s 522 2026-10-15 12:02:23,587 Epoch 65: train=3.09185 val=3.08288 mAP50=0.14481 seconds=2.3
+742.1s 523 2026-10-15 12:02:23,661 epoch=66 batch=1/8 loss=1.35973
+747.9s 524 2026-10-15 12:02:29,593 Epoch 66: train=3.09134 val=3.07776 mAP50=0.14481 seconds=2.3
+747.9s 525 2026-10-15 12:02:29,666 epoch=67 batch=1/8 loss=2.14082
+748.1s 526 2026-10-15 12:02:29,593 Epoch 66: train=3.09134 val=3.07776 mAP50=0.14481 seconds=2.3
+748.1s 527 2026-10-15 12:02:29,666 epoch=67 batch=1/8 loss=2.14082
+748.1s 528 
+748.1s 529 2026-10-15 12:02:29,593 Epoch 66: train=3.09134 val=3.07776 mAP50=0.14481 seconds=2.3
+748.1s 530 2026-10-15 12:02:29,666 epoch=67 batch=1/8 loss=2.14082
+763.4s 531 2026-10-15 12:02:45,080 Epoch 67: train=3.07954 val=3.06988 mAP50=0.14481 seconds=2.3
+763.4s 532 2026-10-15 12:02:45,155 epoch=68 batch=1/8 loss=2.31060
+763.6s 533 2026-10-15 12:02:45,080 Epoch 67: train=3.07954 val=3.06988 mAP50=0.14481 seconds=2.3
+763.6s 534 2026-10-15 12:02:45,155 epoch=68 batch=1/8 loss=2.31060
+763.6s 535 
+763.6s 536 2026-10-15 12:02:45,080 Epoch 67: train=3.07954 val=3.06988 mAP50=0.14481 seconds=2.3
+763.6s 537 2026-10-15 12:02:45,155 epoch=68 batch=1/8 loss=2.31060
+772.6s 538 2026-10-15 12:02:54,344 Epoch 68: train=3.07469 val=3.06452 mAP50=0.14496 seconds=2.3
+772.7s 539 2026-10-15 12:02:54,417 epoch=69 batch=1/8 loss=1.33275
+772.8s 540 2026-10-15 12:02:54,344 Epoch 68: train=3.07469 val=3.06452 mAP50=0.14496 seconds=2.3
+772.8s 541 2026-10-15 12:02:54,417 epoch=69 batch=1/8 loss=1.33275
+772.8s 542 
+772.8s 543 2026-10-15 12:02:54,344 Epoch 68: train=3.07469 val=3.06452 mAP50=0.14496 seconds=2.3
+772.8s 544 2026-10-15 12:02:54,417 epoch=69 batch=1/8 loss=1.33275
+779.1s 545 2026-10-15 12:03:00,843 Epoch 69: train=3.07601 val=3.06434 mAP50=0.14485 seconds=2.3
+779.2s 546 2026-10-15 12:03:00,916 epoch=70 batch=1/8 loss=4.68095
+779.3s 547 2026-10-15 12:03:00,843 Epoch 69: train=3.07601 val=3.06434 mAP50=0.14485 seconds=2.3
+779.3s 548 2026-10-15 12:03:00,916 epoch=70 batch=1/8 loss=4.68095
+779.3s 549 
+779.3s 550 2026-10-15 12:03:00,843 Epoch 69: train=3.07601 val=3.06434 mAP50=0.14485 seconds=2.3
+779.3s 551 2026-10-15 12:03:00,916 epoch=70 batch=1/8 loss=4.68095
+785.7s 552 2026-10-15 12:03:07,453 Epoch 70: train=3.06853 val=3.06238 mAP50=0.14588 seconds=2.4
+785.8s 553 2026-10-15 12:03:07,525 epoch=71 batch=1/8 loss=4.68010
+785.9s 554 2026-10-15 12:03:07,453 Epoch 70: train=3.06853 val=3.06238 mAP50=0.14588 seconds=2.4
+785.9s 555 2026-10-15 12:03:07,525 epoch=71 batch=1/8 loss=4.68010
+785.9s 556 
+785.9s 557 2026-10-15 12:03:07,453 Epoch 70: train=3.06853 val=3.06238 mAP50=0.14588 seconds=2.4
+785.9s 558 2026-10-15 12:03:07,525 epoch=71 batch=1/8 loss=4.68010
+791.6s 559 2026-10-15 12:03:13,327 Epoch 71: train=3.06612 val=3.05772 mAP50=0.14730 seconds=2.3
+791.7s 560 2026-10-15 12:03:13,399 epoch=72 batch=1/8 loss=4.70276
+791.8s 561 2026-10-15 12:03:13,327 Epoch 71: train=3.06612 val=3.05772 mAP50=0.14730 seconds=2.3
+791.8s 562 2026-10-15 12:03:13,399 epoch=72 batch=1/8 loss=4.70276
+791.8s 563 
+791.8s 564 2026-10-15 12:03:13,327 Epoch 71: train=3.06612 val=3.05772 mAP50=0.14730 seconds=2.3
+791.8s 565 2026-10-15 12:03:13,399 epoch=72 batch=1/8 loss=4.70276
+804.0s 566 2026-10-15 12:03:25,685 Epoch 72: train=3.06566 val=3.05910 mAP50=0.14726 seconds=2.3
+804.0s 567 2026-10-15 12:03:25,759 epoch=73 batch=1/8 loss=1.39713
+804.2s 568 2026-10-15 12:03:25,685 Epoch 72: train=3.06566 val=3.05910 mAP50=0.14726 seconds=2.3
+804.2s 569 2026-10-15 12:03:25,759 epoch=73 batch=1/8 loss=1.39713
+804.2s 570 
+804.2s 571 2026-10-15 12:03:25,685 Epoch 72: train=3.06566 val=3.05910 mAP50=0.14726 seconds=2.3
+804.2s 572 2026-10-15 12:03:25,759 epoch=73 batch=1/8 loss=1.39713
+810.0s 573 2026-10-15 12:03:31,729 Epoch 73: train=3.06724 val=3.06161 mAP50=0.14059 seconds=2.3
+810.1s 574 2026-10-15 12:03:31,808 epoch=74 batch=1/8 loss=6.30543
+810.2s 575 2026-10-15 12:03:31,729 Epoch 73: train=3.06724 val=3.06161 mAP50=0.14059 seconds=2.3
+810.2s 576 2026-10-15 12:03:31,808 epoch=74 batch=1/8 loss=6.30543
+810.2s 577 
+810.2s 578 2026-10-15 12:03:31,729 Epoch 73: train=3.06724 val=3.06161 mAP50=0.14059 seconds=2.3
+810.2s 579 2026-10-15 12:03:31,808 epoch=74 batch=1/8 loss=6.30543
+821.5s 580 2026-10-15 12:03:43,262 Epoch 74: train=3.07220 val=3.06407 mAP50=0.15161 seconds=2.4
+821.6s 581 2026-10-15 12:03:43,336 epoch=75 batch=1/8 loss=4.75404
+821.7s 582 2026-10-15 12:03:43,262 Epoch 74: train=3.07220 val=3.06407 mAP50=0.15161 seconds=2.4
+821.7s 583 2026-10-15 12:03:43,336 epoch=75 batch=1/8 loss=4.75404
+821.7s 584 
+821.7s 585 2026-10-15 12:03:43,262 Epoch 74: train=3.07220 val=3.06407 mAP50=0.15161 seconds=2.4
+821.7s 586 2026-10-15 12:03:43,336 epoch=75 batch=1/8 loss=4.75404
+827.9s 587 2026-10-15 12:03:49,587 Epoch 75: train=3.07065 val=3.06427 mAP50=0.14059 seconds=2.3
+827.9s 588 2026-10-15 12:03:49,662 epoch=76 batch=1/8 loss=1.41466
+828.1s 589 2026-10-15 12:03:49,587 Epoch 75: train=3.07065 val=3.06427 mAP50=0.14059 seconds=2.3
+828.1s 590 2026-10-15 12:03:49,662 epoch=76 batch=1/8 loss=1.41466
+828.1s 591 
+828.1s 592 2026-10-15 12:03:49,587 Epoch 75: train=3.07065 val=3.06427 mAP50=0.14059 seconds=2.3
+828.1s 593 2026-10-15 12:03:49,662 epoch=76 batch=1/8 loss=1.41466
+843.2s 594 2026-10-15 12:04:04,934 Epoch 76: train=3.07692 val=3.06496 mAP50=0.14996 seconds=2.3
+843.3s 595 2026-10-15 12:04:05,008 epoch=77 batch=1/8 loss=1.30805
+843.4s 596 2026-10-15 12:04:04,934 Epoch 76: train=3.07692 val=3.06496 mAP50=0.14996 seconds=2.3
+843.4s 597 2026-10-15 12:04:05,008 epoch=77 batch=1/8 loss=1.30805
+843.4s 598 
+843.4s 599 2026-10-15 12:04:04,934 Epoch 76: train=3.07692 val=3.06496 mAP50=0.14996 seconds=2.3
+843.4s 600 2026-10-15 12:04:05,008 epoch=77 batch=1/8 loss=1.30805
+853.9s 601 2026-10-15 12:04:15,626 Epoch 77: train=3.07537 val=3.06580 mAP50=0.14726 seconds=2.3
+854.0s 602 2026-10-15 12:04:15,700 epoch=78 batch=1/8 loss=6.17144
+854.1s 603 2026-10-15 12:04:15,626 Epoch 77: train=3.07537 val=3.06580 mAP50=0.14726 seconds=2.3
+854.1s 604 2026-10-15 12:04:15,700 epoch=78 batch=1/8 loss=6.17144
+854.1s 605 
+854.1s 606 2026-10-15 12:04:15,626 Epoch 77: train=3.07537 val=3.06580 mAP50=0.14726 seconds=2.3
+854.1s 607 2026-10-15 12:04:15,700 epoch=78 batch=1/8 loss=6.17144
+860.2s 608 2026-10-15 12:04:21,932 Epoch 78: train=3.07474 val=3.06531 mAP50=0.14726 seconds=2.3
+860.3s 609 2026-10-15 12:04:22,005 epoch=79 batch=1/8 loss=2.25245
+860.4s 610 2026-10-15 12:04:21,932 Epoch 78: train=3.07474 val=3.06531 mAP50=0.14726 seconds=2.3
+860.4s 611 2026-10-15 12:04:22,005 epoch=79 batch=1/8 loss=2.25245
+860.4s 612 
+860.4s 613 2026-10-15 12:04:21,932 Epoch 78: train=3.07474 val=3.06531 mAP50=0.14726 seconds=2.3
+860.4s 614 2026-10-15 12:04:22,005 epoch=79 batch=1/8 loss=2.25245
+871.3s 615 2026-10-15 12:04:33,037 Epoch 79: train=3.07578 val=3.06416 mAP50=0.14367 seconds=2.3
+871.4s 616 2026-10-15 12:04:33,131 epoch=80 batch=1/8 loss=6.19918
+871.5s 617 2026-10-15 12:04:33,037 Epoch 79: train=3.07578 val=3.06416 mAP50=0.14367 seconds=2.3
+871.5s 618 2026-10-15 12:04:33,131 epoch=80 batch=1/8 loss=6.19918
+871.5s 619 
+871.5s 620 2026-10-15 12:04:33,037 Epoch 79: train=3.07578 val=3.06416 mAP50=0.14367 seconds=2.3
+871.5s 621 2026-10-15 12:04:33,131 epoch=80 batch=1/8 loss=6.19918
+877.7s 622 2026-10-15 12:04:39,371 Epoch 80: train=3.07083 val=3.06494 mAP50=0.14959 seconds=2.3
+877.7s 623 2026-10-15 12:04:39,444 epoch=81 batch=1/8 loss=5.97047
+877.9s 624 2026-10-15 12:04:39,371 Epoch 80: train=3.07083 val=3.06494 mAP50=0.14959 seconds=2.3
+877.9s 625 2026-10-15 12:04:39,444 epoch=81 batch=1/8 loss=5.97047
+877.9s 626 
+877.9s 627 2026-10-15 12:04:39,371 Epoch 80: train=3.07083 val=3.06494 mAP50=0.14959 seconds=2.3
+877.9s 628 2026-10-15 12:04:39,444 epoch=81 batch=1/8 loss=5.97047
+883.8s 629 2026-10-15 12:04:45,498 Epoch 81: train=3.07339 val=3.06533 mAP50=0.15828 seconds=2.4
+883.9s 630 2026-10-15 12:04:45,573 epoch=82 batch=1/8 loss=1.38537
+884.0s 631 2026-10-15 12:04:45,498 Epoch 81: train=3.07339 val=3.06533 mAP50=0.15828 seconds=2.4
+884.0s 632 2026-10-15 12:04:45,573 epoch=82 batch=1/8 loss=1.38537
+884.0s 633 
+884.0s 634 2026-10-15 12:04:45,498 Epoch 81: train=3.07339 val=3.06533 mAP50=0.15828 seconds=2.4
+884.0s 635 2026-10-15 12:04:45,573 epoch=82 batch=1/8 loss=1.38537
+896.0s 636 2026-10-15 12:04:57,689 Epoch 82: train=3.07367 val=3.06707 mAP50=0.16586 seconds=2.3
+896.1s 637 2026-10-15 12:04:57,770 epoch=83 batch=1/8 loss=1.37078
+896.2s 638 2026-10-15 12:04:57,689 Epoch 82: train=3.07367 val=3.06707 mAP50=0.16586 seconds=2.3
+896.2s 639 2026-10-15 12:04:57,770 epoch=83 batch=1/8 loss=1.37078
+896.2s 640 
+896.2s 641 2026-10-15 12:04:57,689 Epoch 82: train=3.07367 val=3.06707 mAP50=0.16586 seconds=2.3
+896.2s 642 2026-10-15 12:04:57,770 epoch=83 batch=1/8 loss=1.37078
+906.1s 643 2026-10-15 12:05:07,827 Epoch 83: train=3.07407 val=3.06705 mAP50=0.15869 seconds=2.4
+906.2s 644 2026-10-15 12:05:07,901 epoch=84 batch=1/8 loss=4.61939
+906.3s 645 2026-10-15 12:05:07,827 Epoch 83: train=3.07407 val=3.06705 mAP50=0.15869 seconds=2.4
+906.3s 646 2026-10-15 12:05:07,901 epoch=84 batch=1/8 loss=4.61939
+906.3s 647 
+906.3s 648 2026-10-15 12:05:07,827 Epoch 83: train=3.07407 val=3.06705 mAP50=0.15869 seconds=2.4
+906.3s 649 2026-10-15 12:05:07,901 epoch=84 batch=1/8 loss=4.61939
+915.2s 650 2026-10-15 12:05:16,900 Epoch 84: train=3.07427 val=3.06552 mAP50=0.15484 seconds=2.3
+915.3s 651 2026-10-15 12:05:16,975 epoch=85 batch=1/8 loss=2.48055
+915.4s 652 2026-10-15 12:05:16,900 Epoch 84: train=3.07427 val=3.06552 mAP50=0.15484 seconds=2.3
+915.4s 653 2026-10-15 12:05:16,975 epoch=85 batch=1/8 loss=2.48055
+915.4s 654 
+915.4s 655 2026-10-15 12:05:16,900 Epoch 84: train=3.07427 val=3.06552 mAP50=0.15484 seconds=2.3
+915.4s 656 2026-10-15 12:05:16,975 epoch=85 batch=1/8 loss=2.48055
+921.8s 657 2026-10-15 12:05:23,480 Epoch 85: train=3.07402 val=3.06542 mAP50=0.15484 seconds=2.3
+921.8s 658 2026-10-15 12:05:23,561 epoch=86 batch=1/8 loss=2.08856
+922.0s 659 2026-10-15 12:05:23,480 Epoch 85: train=3.07402 val=3.06542 mAP50=0.15484 seconds=2.3
+922.0s 660 2026-10-15 12:05:23,561 epoch=86 batch=1/8 loss=2.08856
+922.0s 661 
+922.0s 662 2026-10-15 12:05:23,480 Epoch 85: train=3.07402 val=3.06542 mAP50=0.15484 seconds=2.3
+922.0s 663 2026-10-15 12:05:23,561 epoch=86 batch=1/8 loss=2.08856
+927.8s 664 2026-10-15 12:05:29,539 Epoch 86: train=3.06590 val=3.06543 mAP50=0.15484 seconds=2.4
+927.9s 665 2026-10-15 12:05:29,613 epoch=87 batch=1/8 loss=6.12493
+928.0s 666 2026-10-15 12:05:29,539 Epoch 86: train=3.06590 val=3.06543 mAP50=0.15484 seconds=2.4
+928.0s 667 2026-10-15 12:05:29,613 epoch=87 batch=1/8 loss=6.12493
+928.0s 668 
+928.0s 669 2026-10-15 12:05:29,539 Epoch 86: train=3.06590 val=3.06543 mAP50=0.15484 seconds=2.4
+928.0s 670 2026-10-15 12:05:29,613 epoch=87 batch=1/8 loss=6.12493
+940.0s 671 2026-10-15 12:05:41,695 Epoch 87: train=3.06603 val=3.06528 mAP50=0.15484 seconds=2.3
+940.1s 672 2026-10-15 12:05:41,769 epoch=88 batch=1/8 loss=5.88208
+940.2s 673 2026-10-15 12:05:41,695 Epoch 87: train=3.06603 val=3.06528 mAP50=0.15484 seconds=2.3
+940.2s 674 2026-10-15 12:05:41,769 epoch=88 batch=1/8 loss=5.88208
+940.2s 675 
+940.2s 676 2026-10-15 12:05:41,695 Epoch 87: train=3.06603 val=3.06528 mAP50=0.15484 seconds=2.3
+940.2s 677 2026-10-15 12:05:41,769 epoch=88 batch=1/8 loss=5.88208
+946.6s 678 2026-10-15 12:05:48,286 Epoch 88: train=3.06637 val=3.06532 mAP50=0.15484 seconds=2.4
+946.6s 679 2026-10-15 12:05:48,359 epoch=89 batch=1/8 loss=2.08920
+946.8s 680 2026-10-15 12:05:48,286 Epoch 88: train=3.06637 val=3.06532 mAP50=0.15484 seconds=2.4
+946.8s 681 2026-10-15 12:05:48,359 epoch=89 batch=1/8 loss=2.08920
+946.8s 682 
+946.8s 683 2026-10-15 12:05:48,286 Epoch 88: train=3.06637 val=3.06532 mAP50=0.15484 seconds=2.4
+946.8s 684 2026-10-15 12:05:48,359 epoch=89 batch=1/8 loss=2.08920
+953.0s 685 2026-10-15 12:05:54,692 Epoch 89: train=3.06617 val=3.06531 mAP50=0.15484 seconds=2.3
+953.0s 686 2026-10-15 12:05:54,765 epoch=90 batch=1/8 loss=2.03801
+953.2s 687 2026-10-15 12:05:54,692 Epoch 89: train=3.06617 val=3.06531 mAP50=0.15484 seconds=2.3
+953.2s 688 2026-10-15 12:05:54,765 epoch=90 batch=1/8 loss=2.03801
+953.2s 689 
+953.2s 690 2026-10-15 12:05:54,692 Epoch 89: train=3.06617 val=3.06531 mAP50=0.15484 seconds=2.3
+953.2s 691 2026-10-15 12:05:54,765 epoch=90 batch=1/8 loss=2.03801
+968.5s 692 2026-10-15 12:06:10,228 Epoch 90: train=3.06593 val=3.06521 mAP50=0.15484 seconds=2.3
+968.6s 693 2026-10-15 12:06:10,302 epoch=91 batch=1/8 loss=3.27387
+968.7s 694 2026-10-15 12:06:10,228 Epoch 90: train=3.06593 val=3.06521 mAP50=0.15484 seconds=2.3
+968.7s 695 2026-10-15 12:06:10,302 epoch=91 batch=1/8 loss=3.27387
+968.7s 696 
+968.7s 697 2026-10-15 12:06:10,228 Epoch 90: train=3.06593 val=3.06521 mAP50=0.15484 seconds=2.3
+968.7s 698 2026-10-15 12:06:10,302 epoch=91 batch=1/8 loss=3.27387
+976.7s 699 2026-10-15 12:06:18,427 Epoch 91: train=3.06599 val=3.06533 mAP50=0.15484 seconds=2.3
+976.8s 700 2026-10-15 12:06:18,500 epoch=92 batch=1/8 loss=3.27318
+976.9s 701 2026-10-15 12:06:18,427 Epoch 91: train=3.06599 val=3.06533 mAP50=0.15484 seconds=2.3
+976.9s 702 2026-10-15 12:06:18,500 epoch=92 batch=1/8 loss=3.27318
+976.9s 703 
+976.9s 704 2026-10-15 12:06:18,427 Epoch 91: train=3.06599 val=3.06533 mAP50=0.15484 seconds=2.3
+976.9s 705 2026-10-15 12:06:18,500 epoch=92 batch=1/8 loss=3.27318
+991.9s 706 2026-10-15 12:06:33,607 Epoch 92: train=3.06599 val=3.06523 mAP50=0.15484 seconds=2.3
+992.0s 707 2026-10-15 12:06:33,680 epoch=93 batch=1/8 loss=2.03907
+992.1s 708 2026-10-15 12:06:33,607 Epoch 92: train=3.06599 val=3.06523 mAP50=0.15484 seconds=2.3
+992.1s 709 2026-10-15 12:06:33,680 epoch=93 batch=1/8 loss=2.03907
+992.1s 710 
+992.1s 711 2026-10-15 12:06:33,607 Epoch 92: train=3.06599 val=3.06523 mAP50=0.15484 seconds=2.3
+992.1s 712 2026-10-15 12:06:33,680 epoch=93 batch=1/8 loss=2.03907
+998.4s 713 2026-10-15 12:06:40,118 Epoch 93: train=3.06552 val=3.06517 mAP50=0.15484 seconds=2.4
+998.5s 714 2026-10-15 12:06:40,191 epoch=94 batch=1/8 loss=5.89094
+998.6s 715 2026-10-15 12:06:40,118 Epoch 93: train=3.06552 val=3.06517 mAP50=0.15484 seconds=2.4
+998.6s 716 2026-10-15 12:06:40,191 epoch=94 batch=1/8 loss=5.89094
+998.6s 717 
+998.6s 718 2026-10-15 12:06:40,118 Epoch 93: train=3.06552 val=3.06517 mAP50=0.15484 seconds=2.4
+998.6s 719 2026-10-15 12:06:40,191 epoch=94 batch=1/8 loss=5.89094
+1004.8s 720 2026-10-15 12:06:46,475 Epoch 94: train=3.06567 val=3.06507 mAP50=0.15484 seconds=2.3
+1004.8s 721 2026-10-15 12:06:46,548 epoch=95 batch=1/8 loss=5.89047
+1005.0s 722 2026-10-15 12:06:46,475 Epoch 94: train=3.06567 val=3.06507 mAP50=0.15484 seconds=2.3
+1005.0s 723 2026-10-15 12:06:46,548 epoch=95 batch=1/8 loss=5.89047
+1005.0s 724 
+1005.0s 725 2026-10-15 12:06:46,475 Epoch 94: train=3.06567 val=3.06507 mAP50=0.15484 seconds=2.3
+1005.0s 726 2026-10-15 12:06:46,548 epoch=95 batch=1/8 loss=5.89047
+1010.7s 727 2026-10-15 12:06:52,447 Epoch 95: train=3.06611 val=3.06522 mAP50=0.15484 seconds=2.3
+1010.8s 728 2026-10-15 12:06:52,520 epoch=96 batch=1/8 loss=1.40375
+1010.9s 729 2026-10-15 12:06:52,447 Epoch 95: train=3.06611 val=3.06522 mAP50=0.15484 seconds=2.3
+1010.9s 730 2026-10-15 12:06:52,520 epoch=96 batch=1/8 loss=1.40375
+1010.9s 731 
+1010.9s 732 2026-10-15 12:06:52,447 Epoch 95: train=3.06611 val=3.06522 mAP50=0.15484 seconds=2.3
+1010.9s 733 2026-10-15 12:06:52,520 epoch=96 batch=1/8 loss=1.40375
+1016.7s 734 2026-10-15 12:06:58,453 Epoch 96: train=3.06574 val=3.06525 mAP50=0.15484 seconds=2.3
+1016.8s 735 2026-10-15 12:06:58,525 epoch=97 batch=1/8 loss=1.41411
+1016.9s 736 2026-10-15 12:06:58,453 Epoch 96: train=3.06574 val=3.06525 mAP50=0.15484 seconds=2.3
+1016.9s 737 2026-10-15 12:06:58,525 epoch=97 batch=1/8 loss=1.41411
+1016.9s 738 
+1016.9s 739 2026-10-15 12:06:58,453 Epoch 96: train=3.06574 val=3.06525 mAP50=0.15484 seconds=2.3
+1016.9s 740 2026-10-15 12:06:58,525 epoch=97 batch=1/8 loss=1.41411
+1022.7s 741 2026-10-15 12:07:04,463 Epoch 97: train=3.06575 val=3.06536 mAP50=0.15484 seconds=2.3
+1022.8s 742 2026-10-15 12:07:04,535 epoch=98 batch=1/8 loss=4.69479
+1022.9s 743 2026-10-15 12:07:04,463 Epoch 97: train=3.06575 val=3.06536 mAP50=0.15484 seconds=2.3
+1022.9s 744 2026-10-15 12:07:04,535 epoch=98 batch=1/8 loss=4.69479
+1022.9s 745 
+1022.9s 746 2026-10-15 12:07:04,463 Epoch 97: train=3.06575 val=3.06536 mAP50=0.15484 seconds=2.3
+1022.9s 747 2026-10-15 12:07:04,535 epoch=98 batch=1/8 loss=4.69479
+1030.0s 748 2026-10-15 12:07:11,697 Epoch 98: train=3.06613 val=3.06550 mAP50=0.15484 seconds=2.3
+1030.1s 749 2026-10-15 12:07:11,772 epoch=99 batch=1/8 loss=1.43063
+1030.2s 750 2026-10-15 12:07:11,697 Epoch 98: train=3.06613 val=3.06550 mAP50=0.15484 seconds=2.3
+1030.2s 751 2026-10-15 12:07:11,772 epoch=99 batch=1/8 loss=1.43063
+1030.2s 752 
+1030.2s 753 2026-10-15 12:07:11,697 Epoch 98: train=3.06613 val=3.06550 mAP50=0.15484 seconds=2.3
+1030.2s 754 2026-10-15 12:07:11,772 epoch=99 batch=1/8 loss=1.43063
+1038.2s 755 2026-10-15 12:07:19,964 Epoch 99: train=3.06645 val=3.06541 mAP50=0.15484 seconds=2.3
+1038.3s 756 2026-10-15 12:07:20,040 epoch=100 batch=1/8 loss=2.45673
+1038.5s 757 2026-10-15 12:07:19,964 Epoch 99: train=3.06645 val=3.06541 mAP50=0.15484 seconds=2.3
+1038.5s 758 2026-10-15 12:07:20,040 epoch=100 batch=1/8 loss=2.45673
+1038.5s 759 
+1038.5s 760 2026-10-15 12:07:19,964 Epoch 99: train=3.06645 val=3.06541 mAP50=0.15484 seconds=2.3
+1038.5s 761 2026-10-15 12:07:20,040 epoch=100 batch=1/8 loss=2.45673
+1047.1s 762 2026-10-15 12:07:28,788 Epoch 100: train=3.06606 val=3.06541 mAP50=0.15484 seconds=2.3
+1047.3s 763 2026-10-15 12:07:28,788 Epoch 100: train=3.06606 val=3.06541 mAP50=0.15484 seconds=2.3
+1047.3s 764 
+1047.3s 765 2026-10-15 12:07:28,788 Epoch 100: train=3.06606 val=3.06541 mAP50=0.15484 seconds=2.3
+1216.9s 766 /usr/local/lib/python3.13/dist-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+1216.9s 767 return func(*args, **kwargs)
+1217.1s 768 /usr/local/lib/python3.13/dist-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+1217.1s 769 return func(*args, **kwargs)
+1217.1s 770 
+1217.1s 771 /usr/local/lib/python3.13/dist-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+1217.1s 772 return func(*args, **kwargs)
+1222.6s 773 ZIP bytes: 3018090360
+1222.6s 774 Status: completed Completed epochs: 100
+1222.6s 775 Evaluation split: train (overfit diagnostic) mAP@0.5: 0.20448280726509918
+1222.6s 776 Classes with GT: 11 / 20
+1226.1s 777 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+1226.1s 778 cells[i][c] = re.sub('\\\\\|', '|', cell)
+1226.3s 779 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+1226.3s 780 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+1227.1s 781 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+1227.2s 782 [NbConvertApp] Writing 32761 bytes to __notebook__.ipynb
+1229.9s 783 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+1230.5s 784 [NbConvertApp] Writing 322871 bytes to __results__.html

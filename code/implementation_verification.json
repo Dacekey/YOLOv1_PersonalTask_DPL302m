@@ -2,8 +2,8 @@
   "checked_date": "2026-10-15",
   "unit_and_integration_tests": {
     "command": "python -m pytest tests -q",
-    "passed": 18,
-    "last_duration_seconds": 46.61,
+    "passed": 22,
+    "last_duration_seconds": 37.64,
     "coverage": [
       "strict 16-conv pretrained loading and finite numerical prefix forward",
       "VOC XML coordinates and missing-split rejection",
@@ -82,9 +82,12 @@
     "evaluate.py": "328918d1e69861d882360033ec33e474efc4975880b5b4eafe853946f966804c",
     "export_results.py": "a855151686f7c900a2abcdd765142bc48126e6b8c1a502b63d24c89b6f77d0ff",
     "failure_analysis.json": "2ab9e994dbeab2f785d94c9b71450b6505738510832010295d5d4f0679eb5f05",
+    "inference_demo.py": "6d729f301195fb77abc299e42e19c783a15d2a8ce1894b0c0f6a285082cfe452",
+    "inference_demo_verification.json": "373f71c07bbdd425690999d4d411a163cc947edb138d9b4bc8ea3fd6c10f5b91",
     "inspect_model.py": "207aaa2a028abbf2482dea0084a5f7311364bb9f009b67daaea460a5750227ab",
     "loss.py": "05058792e9fdaf38009b2b3c2c1031a75bee1ad87583c3b55c1231fdcf2d190d",
-    "notebooks/kaggle_train_yolov1.ipynb": "3476599c7ee54f3ddf730ae2526513771514cf44d2eabcd54167c72119668dfc",
+    "notebooks/kaggle_inference_yolov1.ipynb": "643968570ae2b04563c91705bd7e4ff325f6ef8eb11258f7a87095f5b6d8e6d1",
+    "notebooks/kaggle_train_yolov1.ipynb": "0d6b3d26edcdce59308c3aef019c3777c9c4590583eb4cf32c9e9e126bcd3013",
     "precision.py": "c23ec60939a95b0097b706dad01751fde5e313b9574175716a11b03938dd610b",
     "predict.py": "ce76b981b2f0a0efe24727de3bbba5d8619edc9cc1325333d2b97ba3942a9383",
     "pretrained.py": "0133774df62e07c19f35e37b50e8e15971294adc885bb81ed7972ceddfb00927",
@@ -94,6 +97,7 @@
     "tests/ddp_worker.py": "85380dbe389de43d82721fc4c40b4d9b734634cdf8709e2a01acb504acfa63d0",
     "tests/test_detection.py": "883d0e285bd681202462b80d9a325dda572213cdfe65fd3d9c451e49458ac803",
     "tests/test_distributed.py": "363e4b20370fc711a449dc22f7b27aca5ee241b42938b852fe5ed2e4db4f8fd5",
+    "tests/test_inference_demo.py": "7659e8168c7c791e62ad6b1d793581e14ab79d1613e4f48c8b8115b058b5f729",
     "tests/test_precision.py": "aef57a1acbc83aa45d322c86075166e7c5c77425dbd405f2af5e31ce3767eab5",
     "tests/test_pretrained.py": "c52f7010eca3074a40050f4081646d0c71aae92a1f64fa42219ec7799fa3b20d",
     "train.py": "91fe6d9dd4900073cbabc3b72bd1c8e569a625190e7651de68ee1235fcf39a00",
@@ -140,5 +144,10 @@
       }
     ],
     "cuda_t4_rerun": false
+  },
+  "inference_demo": {
+    "verification": "inference_demo_verification.json",
+    "notebook": "notebooks/kaggle_inference_yolov1.ipynb",
+    "real_checkpoint_cpu_test": "passed; selected 3 correct-bbox examples from 5-image diagnostic subset"
   }
 }

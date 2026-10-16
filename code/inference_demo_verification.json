@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-16",
+  "notebook": "notebooks/kaggle_inference_yolov1.ipynb",
+  "module": "inference_demo.py",
+  "tests": {
+    "passed": 22,
+    "seconds": 37.64,
+    "command": "python -m pytest tests -q"
+  },
+  "real_checkpoint_local_test": {
+    "device": "cpu",
+    "checkpoint_epoch": 50,
+    "checkpoint_source": "best.pt extracted from output/yolov1_voc2007_smoke_01.zip (full training run)",
+    "validation_scope": "Five intentionally chosen official validation images only, for numerical inference/export verification; not a new full-val benchmark.",
+    "input_ids": [
+      "001837",
+      "007031",
+      "001028",
+      "003422",
+      "009440"
+    ],
+    "selected_examples": [
+      {
+        "image_id": "009440",
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "gt_objects": 2,
+        "detections": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "mean_tp_iou": 0.759834349155426,
+        "max_score": 0.5107346773147583,
+        "tp_classes": [
+          14
+        ]
+      },
+      {
+        "image_id": "001028",
+        "tp": 1,
+        "fp": 0,
+        "fn": 4,
+        "gt_objects": 5,
+        "detections": 1,
+        "precision": 1.0,
+        "recall": 0.2,
+        "mean_tp_iou": 0.6799270510673523,
+        "max_score": 0.5316367745399475,
+        "tp_classes": [
+          14
+        ]
+      },
+      {
+        "image_id": "001837",
+        "tp": 1,
+        "fp": 0,
+        "fn": 3,
+        "gt_objects": 4,
+        "detections": 1,
+        "precision": 1.0,
+        "recall": 0.25,
+        "mean_tp_iou": 0.619397759437561,
+        "max_score": 0.5499778389930725,
+        "tp_classes": [
+          14
+        ]
+      }
+    ],
+    "zip_path": "/tmp/yolov1-inference-real-check.zip",
+    "zip_bytes": 3455659,
+    "zip_crc": "passed",
+    "image_visual_inspection": "Contact sheet checked; original/GT/prediction panels, scores, match status and IoU rendered correctly."
+  },
+  "notebook_defaults": {
+    "dataset": "stpeteishii/pascal-voc-2007-dataset",
+    "checkpoint": "auto-detect best.pt or training ZIP in Kaggle Input",
+    "evaluation": "fresh inference over full official val, no limit",
+    "count": 3,
+    "demo_threshold": 0.25,
+    "metrics": [
+      "full-val VOC2007 mAP50/per-class AP",
+      "full-val precision/recall/F1 and TP/FP/FN at display threshold",
+      "mean true-positive IoU",
+      "per-example scores/IoUs and TP/FP/ignored status",
+      "threshold sweep"
+    ]
+  },
+  "selection_disclosure": "Uses GT after inference to choose illustrative examples, favors correct matches and class diversity; selected-image performance is not presented as full-val performance.",
+  "gpu_kaggle_execution": "Not executed locally; user runs after pushing code and attaching checkpoint/dataset."
+}

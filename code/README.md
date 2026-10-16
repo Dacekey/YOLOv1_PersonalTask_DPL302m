@@ -177,3 +177,37 @@ Bản sửa đặt `amp_init_scale=128` trong configs (thay vì mặc định Gr
 Để chạy lại: push cả `precision.py`, `train.py` và configs; chọn commit mới trong `REPO_REF` (hoặc `main`), đặt tên mới như `yolov1_voc2007_smoke_02`, để `RESUME_PATH=""`. Lần fail trước ở update đầu nên không có checkpoint hoàn tất epoch để resume. Nếu cần cô lập lỗi số học còn lại, tạo config `amp=false` để chạy FP32; chưa cần giảm learning rate chỉ vì overflow ở update đầu.
 
 Tham khảo hành vi loss scaling/clipping: [PyTorch AMP examples](https://docs.pytorch.org/docs/stable/notes/amp_examples.html). Tests tái hiện finite YOLO loss nhưng backward FP16 overflow với scale 65536, kiểm tra backoff/recovery, scale 128, clipping hữu hạn và skip đồng bộ giữa hai rank kể cả chỉ một rank bị inject overflow. Đây là kiểm tra local CPU FP16/Gloo; không thay cho chạy lại trên T4.
+
+## Notebook inference để chọn 3 ảnh minh họa
+
+Notebook: `notebooks/kaggle_inference_yolov1.ipynb`. Push cả `inference_demo.py` cùng notebook lên GitHub trước khi chạy.
+
+1. Upload notebook lên Kaggle, bật Internet và GPU (inference chỉ cần một GPU; nếu chọn T4 ×2 thì dùng GPU 0).
+2. Add Input dataset `stpeteishii/pascal-voc-2007-dataset` và output của **lượt train đầy đủ 50 epoch**. Có thể gắn thư mục chứa `checkpoints/best.pt` hoặc file ZIP train. Không cần `extraction.conv.weights` cho inference.
+3. `CHECKPOINT_PATH=""` tự tìm duy nhất một `best.pt` hoặc ZIP chứa nó. Nếu có nhiều checkpoint/ZIP, đặt đường dẫn tuyệt đối `/kaggle/input/.../best.pt` hoặc `/kaggle/input/.../training.zip`. Tên ZIP có chữ `smoke` không ảnh hưởng; saved config mới xác định loại run. Checkpoint overfit bị từ chối để tránh dùng nhầm.
+4. Giữ `NUM_EXAMPLES=3`, `DEMO_SCORE_THRESHOLD=0.25`, đặt `RUN_NAME` mới. `REPO_REF` phải là main/commit có module inference mới. Chạy **Save Version → Save & Run All**, tải ZIP từ Output.
+
+Notebook chạy inference mới trên **toàn bộ val**, không lấy lại prediction cũ làm kết quả inference. Metric chính giữ VOC2007 11-point mAP@0.5 với score threshold `0.001`; đồng thời xuất micro precision/recall/F1, TP/FP/FN, mean IoU của TP ở ngưỡng hiển thị `0.25` và bảng threshold 0.05/0.10/0.25/0.50. Không đổi threshold tự động để làm đẹp ảnh.
+
+Chọn ảnh minh họa ưu tiên có TP đúng lớp với IoU > 0.5, precision/IoU tốt, và khác lớp khi có thể. Nếu thiếu ảnh có TP thì bổ sung ảnh có bbox bất kỳ, ghi nguyên trạng thái FP/ignored. GT chỉ dùng sau inference để đánh giá và chọn ví dụ, không tham gia dự đoán. Ba ảnh là ví dụ được chọn có chủ đích, không đại diện độ chính xác toàn bộ val. Metric toàn val được giữ riêng với metric từng ảnh được chọn.
+
+ZIP inference **không chứa weights/dataset**, gồm:
+
+- `metrics.json`, `per_class_ap.csv`, `per_class_ap.png/pdf`: kết quả AP/mAP toàn val.
+- `operating_point_metrics.json`, `threshold_metrics.csv`, `per_image_metrics.csv`: precision/recall/F1 và các thống kê ngưỡng.
+- `selected_examples.json/csv`, `examples/selected_detections.csv`: ID, class, score, IoU, TP/FP/ignored của ví dụ.
+- Ba ảnh `*_comparison.jpg` gồm ảnh gốc / GT / prediction; thêm ảnh input, prediction riêng và `contact_sheet.jpg`.
+- `predictions.json`, `summary.txt`, manifest có checksum checkpoint, split/IDs, epoch, runtime, selection policy, source snapshot và checksum artifacts.
+
+Model là code tự định nghĩa và recipe 50 epoch cho demo; không tuyên bố tái lập benchmark paper. Score không phải xác suất đã được hiệu chuẩn. Thời gian evaluation có cả đọc ảnh/decoding/AP, không được báo thành model-only FPS.
+
+CLI tương đương:
+
+```bash
+python inference_demo.py --data /path/to/VOC2007 \
+  --checkpoint /path/to/training_output.zip --device cuda \
+  --count 3 --demo-threshold 0.25 \
+  --output /path/to/val_demo --zip /path/to/val_demo.zip
+```
+
+Cờ `--limit` chỉ dành cho kiểm tra local và sẽ ghi rõ `limited validation subset`; notebook mặc định không dùng cờ này.
